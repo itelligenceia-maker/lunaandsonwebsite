@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna &amp; Sons Landscaping | Santa Maria &amp; Central Coast, CA</title>
+<meta name="description" content="Family-owned landscape design, hardscaping, irrigation, planting, sod, and tree services in Santa Maria, CA. Licensed &amp; insured since 2019. Call (805) 268-2808 for a free estimate.">
+
+<!-- Fonts: Fraunces (confident serif for headlines) + Inter (clean sans for body/nav) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS (Animate On Scroll) - restrained fade-up reveals only -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =========================================================
+     HEADER / NAV
+========================================================= -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="logo" aria-label="Luna &amp; Sons Landscaping home">
+      <span class="logo-mark">L&amp;S</span>
+      <span class="logo-text">
+        <span class="logo-name">Luna &amp; Sons</span>
+        <span class="logo-sub" data-en="Landscaping" data-es="Paisajismo">Landscaping</span>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#top" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+        <li><a href="#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
+        <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+18052682808">
+        <span class="header-phone-badge"><i data-lucide="phone" aria-hidden="true"></i></span>
+        <span>(805) 268-2808</span>
+      </a>
+      <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch language / Cambiar idioma">
+        <span class="lang-en-flag" data-active="true">EN</span>/<span class="lang-es-flag">ES</span>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- =========================================================
+       1. HERO
+  ========================================================= -->
+  <section class="hero">
+    <!-- PLACEHOLDER PHOTO: Full-bleed hero image. Needs a REAL photo (not AI/stock) of a
+         finished Luna & Sons hardscape/landscape project in Santa Maria — ideally shot at
+         dusk/golden hour to lean into the brand's twilight-purple lighting motif.
+         Suggested file: images/hero-santa-maria-project.jpg (2400x1400 min, landscape) -->
+    <div class="hero-media placeholder-img" role="img" aria-label="Placeholder: photo of a completed Luna & Sons landscaping project">
+      <i data-lucide="image" aria-hidden="true"></i>
+      <span data-en="Hero photo goes here — real project photo, dusk lighting preferred" data-es="Foto principal aquí — foto real del proyecto, se prefiere luz de atardecer">Hero photo goes here — real project photo, dusk lighting preferred</span>
+    </div>
+    <div class="hero-scrim"></div>
+
+    <div class="container hero-content" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out">
+      <span class="badge badge-light">
+        <i data-lucide="shield-check" aria-hidden="true"></i>
+        <span data-en="Licensed &amp; Insured — Lic #45178" data-es="Con Licencia y Seguro — Lic #45178">Licensed &amp; Insured — Lic #45178</span>
+      </span>
+      <h1 data-en="Landscapes built to work as hard as the Central Coast does." data-es="Paisajes construidos para trabajar tan duro como la Costa Central.">Landscapes built to work as hard as the Central Coast does.</h1>
+      <p class="hero-sub" data-en="Family-owned and operated in Santa Maria since 2019. Design, hardscape, irrigation, and planting — done right the first time." data-es="Familia local operando en Santa Maria desde 2019. Diseño, hardscape, riego y plantación — bien hecho desde la primera vez.">Family-owned and operated in Santa Maria since 2019. Design, hardscape, irrigation, and planting — done right the first time.</p>
+
+      <div class="hero-cta-row">
+        <a href="#quote" class="btn btn-primary">
+          <span data-en="Get a Free Estimate" data-es="Cotización Gratis">Get a Free Estimate</span>
+          <i data-lucide="arrow-right" aria-hidden="true"></i>
+        </a>
+        <a href="#projects" class="btn btn-outline-light">
+          <span data-en="View Our Work" data-es="Ver Nuestro Trabajo">View Our Work</span>
+        </a>
+      </div>
+
+      <a class="hero-phone" href="tel:+18052682808">
+        <i data-lucide="phone" aria-hidden="true"></i>
+        <span>(805) 268-2808</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       2. QUICK QUOTE STRIP
+  ========================================================= -->
+  <section class="quote-strip" id="quote">
+    <div class="container">
+      <form class="quote-form" id="quick-quote-form" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+        <div class="quote-form-head">
+          <h2 data-en="Get a fast, free estimate" data-es="Obtenga una cotización rápida y gratuita">Get a fast, free estimate</h2>
+          <p data-en="Tell us a little about your project — we'll call you back within one business day." data-es="Cuéntenos sobre su proyecto — le llamaremos dentro de un día hábil.">Tell us a little about your project — we'll call you back within one business day.</p>
+        </div>
+
+        <div class="quote-form-fields">
+          <div class="field">
+            <label for="qq-name" data-en="Name" data-es="Nombre">Name</label>
+            <input type="text" id="qq-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="qq-phone" data-en="Phone" data-es="Teléfono">Phone</label>
+            <input type="tel" id="qq-phone" name="phone" autocomplete="tel" required>
+          </div>
+          <div class="field">
+            <label for="qq-service" data-en="Service" data-es="Servicio">Service</label>
+            <select id="qq-service" name="service" required>
+              <option value="" data-en="Select a service" data-es="Seleccione un servicio">Select a service</option>
+              <option value="design" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</option>
+              <option value="hardscaping" data-en="Hardscaping" data-es="Hardscape">Hardscaping</option>
+              <option value="irrigation" data-en="Irrigation Systems" data-es="Sistemas de Riego">Irrigation Systems</option>
+              <option value="planting" data-en="Planting" data-es="Plantación">Planting</option>
+              <option value="sod" data-en="Sod Installation" data-es="Instalación de Césped">Sod Installation</option>
+              <option value="tree" data-en="Tree Services" data-es="Servicios de Árboles">Tree Services</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qq-budget" data-en="Budget Range" data-es="Rango de Presupuesto">Budget Range</label>
+            <select id="qq-budget" name="budget" required>
+              <option value="" data-en="Select a range" data-es="Seleccione un rango">Select a range</option>
+              <option value="under-5k">Under $5k</option>
+              <option value="5k-15k">$5k - $15k</option>
+              <option value="15k-30k">$15k - $30k</option>
+              <option value="30k-plus">$30k+</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary quote-submit">
+            <span data-en="Request Estimate" data-es="Solicitar Cotización">Request Estimate</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       3. TRUST BAR (count-up stats)
+  ========================================================= -->
+  <section class="trust-bar">
+    <div class="container trust-grid">
+      <div class="trust-stat" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-out">
+        <i data-lucide="calendar" aria-hidden="true"></i>
+        <span class="trust-number" data-count-since="2019" data-suffix="+">0</span>
+        <span class="trust-label" data-en="Years in Business" data-es="Años de Experiencia">Years in Business</span>
+      </div>
+      <div class="trust-stat" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-out" data-aos-delay="100">
+        <i data-lucide="shield-check" aria-hidden="true"></i>
+        <span class="trust-number" data-static="#45178">#45178</span>
+        <span class="trust-label" data-en="Contractor License" data-es="Licencia de Contratista">Contractor License</span>
+      </div>
+      <div class="trust-stat" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-out" data-aos-delay="200">
+        <i data-lucide="check-circle-2" aria-hidden="true"></i>
+        <span class="trust-number" data-count="500" data-suffix="+">0</span>
+        <span class="trust-label" data-en="Projects Completed" data-es="Proyectos Completados">Projects Completed</span>
+      </div>
+      <div class="trust-stat" data-aos="fade-up" data-aos-duration="500" data-aos-easing="ease-out" data-aos-delay="300">
+        <i data-lucide="map-pin" aria-hidden="true"></i>
+        <span class="trust-number" data-static="100%">100%</span>
+        <span class="trust-label" data-en="Central Coast Local" data-es="Costa Central Local">Central Coast Local</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       4. ABOUT
+  ========================================================= -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-media placeholder-img placeholder-portrait" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out" role="img" aria-label="Placeholder: photo of the Luna & Sons family or crew on site">
+        <!-- PLACEHOLDER PHOTO: A real photo of the Luna family / crew on a job site.
+             Suggested file: images/about-crew.jpg (portrait or square crop) -->
+        <i data-lucide="image" aria-hidden="true"></i>
+        <span data-en="Crew or family photo goes here" data-es="Foto del equipo o la familia aquí">Crew or family photo goes here</span>
+      </div>
+
+      <div class="about-copy" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out" data-aos-delay="100">
+        <span class="eyebrow" data-en="About Us" data-es="Sobre Nosotros">About Us</span>
+        <h2 data-en="A family name on every yard we touch." data-es="Un nombre familiar en cada jardín que tocamos.">A family name on every yard we touch.</h2>
+        <p data-en="Luna &amp; Sons Landscaping has been family-owned and operated in Santa Maria since 2019. What started as one truck and a handful of neighborhood yards has grown into a full-service landscaping company serving homeowners and businesses across the Central Coast — but the way we work hasn't changed. We show up when we say we will, we build things that last, and we stand behind every project with our own name." data-es="Luna &amp; Sons Landscaping ha sido una empresa familiar en Santa Maria desde 2019. Lo que comenzó como un camión y unos cuantos jardines del vecindario se ha convertido en una compañía de paisajismo de servicio completo que atiende a hogares y negocios en toda la Costa Central — pero la forma en que trabajamos no ha cambiado. Llegamos cuando decimos que lo haremos, construimos cosas que duran, y respaldamos cada proyecto con nuestro propio nombre.">Luna &amp; Sons Landscaping has been family-owned and operated in Santa Maria since 2019. What started as one truck and a handful of neighborhood yards has grown into a full-service landscaping company serving homeowners and businesses across the Central Coast — but the way we work hasn't changed. We show up when we say we will, we build things that last, and we stand behind every project with our own name.</p>
+        <p data-en="We're fully licensed and insured (License #45178), so every design, hardscape, and irrigation job is backed by real accountability — not just a handshake." data-es="Estamos completamente licenciados y asegurados (Licencia #45178), por lo que cada trabajo de diseño, hardscape y riego está respaldado por responsabilidad real — no solo un apretón de manos.">We're fully licensed and insured (License #45178), so every design, hardscape, and irrigation job is backed by real accountability — not just a handshake.</p>
+
+        <ul class="about-facts">
+          <li><i data-lucide="check" aria-hidden="true"></i><span data-en="Family-owned &amp; operated since 2019" data-es="Familiar desde 2019">Family-owned &amp; operated since 2019</span></li>
+          <li><i data-lucide="check" aria-hidden="true"></i><span data-en="Licensed &amp; insured — License #45178" data-es="Licenciado y asegurado — Licencia #45178">Licensed &amp; insured — License #45178</span></li>
+          <li><i data-lucide="check" aria-hidden="true"></i><span data-en="Proudly serving Santa Maria &amp; the Central Coast" data-es="Con orgullo servimos Santa Maria y la Costa Central">Proudly serving Santa Maria &amp; the Central Coast</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       5. SERVICES
+  ========================================================= -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+        <span class="eyebrow" data-en="What We Do" data-es="Lo Que Hacemos">What We Do</span>
+        <h2 data-en="Full-service landscaping, start to finish." data-es="Paisajismo de servicio completo, de principio a fin.">Full-service landscaping, start to finish.</h2>
+      </div>
+
+      <div class="card-grid services-grid">
+        <article class="card service-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="0">
+          <!-- PLACEHOLDER PHOTO: images/service-design.jpg — real photo of a completed design/planning project -->
+          <div class="card-media placeholder-img">
+            <i data-lucide="image" aria-hidden="true"></i>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i data-lucide="pencil-ruler" aria-hidden="true"></i></div>
+            <h3 data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</h3>
+            <p data-en="Custom outdoor plans tailored to your property, your climate, and how you actually use your yard." data-es="Planes personalizados adaptados a su propiedad, su clima y cómo realmente usa su jardín.">Custom outdoor plans tailored to your property, your climate, and how you actually use your yard.</p>
+          </div>
+        </article>
+
+        <article class="card service-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="100">
+          <!-- PLACEHOLDER PHOTO: images/service-hardscaping.jpg — real photo of a patio/paver/retaining wall project -->
+          <div class="card-media placeholder-img">
+            <i data-lucide="image" aria-hidden="true"></i>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i data-lucide="hammer" aria-hidden="true"></i></div>
+            <h3 data-en="Hardscaping" data-es="Hardscape">Hardscaping</h3>
+            <p data-en="Patios, walkways, retaining walls, and outdoor living spaces built with materials that hold up to Central Coast weather." data-es="Patios, senderos, muros de contención y espacios exteriores construidos con materiales resistentes al clima de la Costa Central.">Patios, walkways, retaining walls, and outdoor living spaces built with materials that hold up to Central Coast weather.</p>
+          </div>
+        </article>
+
+        <article class="card service-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="200">
+          <!-- PLACEHOLDER PHOTO: images/service-irrigation.jpg — real photo of irrigation/sprinkler install -->
+          <div class="card-media placeholder-img">
+            <i data-lucide="image" aria-hidden="true"></i>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i data-lucide="droplets" aria-hidden="true"></i></div>
+            <h3 data-en="Irrigation Systems" data-es="Sistemas de Riego">Irrigation Systems</h3>
+            <p data-en="Efficient, drought-smart irrigation designed to keep your landscape healthy without wasting water." data-es="Riego eficiente y adaptado a la sequía, diseñado para mantener su paisaje saludable sin desperdiciar agua.">Efficient, drought-smart irrigation designed to keep your landscape healthy without wasting water.</p>
+          </div>
+        </article>
+
+        <article class="card service-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="300">
+          <!-- PLACEHOLDER PHOTO: images/service-planting.jpg — real photo of a planting/garden bed install -->
+          <div class="card-media placeholder-img">
+            <i data-lucide="image" aria-hidden="true"></i>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i data-lucide="flower-2" aria-hidden="true"></i></div>
+            <h3 data-en="Planting" data-es="Plantación">Planting</h3>
+            <p data-en="Trees, shrubs, and gardens selected for the Central Coast climate and installed to actually thrive." data-es="Árboles, arbustos y jardines seleccionados para el clima de la Costa Central e instalados para prosperar.">Trees, shrubs, and gardens selected for the Central Coast climate and installed to actually thrive.</p>
+          </div>
+        </article>
+
+        <article class="card service-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="400">
+          <!-- PLACEHOLDER PHOTO: images/service-sod.jpg — real photo of a fresh sod lawn install -->
+          <div class="card-media placeholder-img">
+            <i data-lucide="image" aria-hidden="true"></i>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i data-lucide="layers" aria-hidden="true"></i></div>
+            <h3 data-en="Sod Installation" data-es="Instalación de Césped">Sod Installation</h3>
+            <p data-en="Full lawn replacement with quality sod, properly graded and installed for even, healthy growth." data-es="Reemplazo completo de césped con instalación adecuada para un crecimiento uniforme y saludable.">Full lawn replacement with quality sod, properly graded and installed for even, healthy growth.</p>
+          </div>
+        </article>
+
+        <article class="card service-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="500">
+          <!-- PLACEHOLDER PHOTO: images/service-tree.jpg — real photo of tree trimming/removal work -->
+          <div class="card-media placeholder-img">
+            <i data-lucide="image" aria-hidden="true"></i>
+          </div>
+          <div class="card-body">
+            <div class="card-icon"><i data-lucide="trees" aria-hidden="true"></i></div>
+            <h3 data-en="Tree Services" data-es="Servicios de Árboles">Tree Services</h3>
+            <p data-en="Trimming, shaping, and removal handled safely by a crew that knows how to protect the rest of your property." data-es="Poda, formación y remoción manejadas de forma segura por un equipo que sabe proteger el resto de su propiedad.">Trimming, shaping, and removal handled safely by a crew that knows how to protect the rest of your property.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6. PROCESS
+  ========================================================= -->
+  <section class="process">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+        <span class="eyebrow" data-en="How We Work" data-es="Cómo Trabajamos">How We Work</span>
+        <h2 data-en="Three steps to a finished yard." data-es="Tres pasos hacia un jardín terminado.">Three steps to a finished yard.</h2>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="0">
+          <div class="process-number">01</div>
+          <div class="process-icon"><i data-lucide="clipboard-list" aria-hidden="true"></i></div>
+          <h3 data-en="Free Consultation" data-es="Consulta Gratuita">Free Consultation</h3>
+          <p data-en="We walk your property with you, talk through your goals, and put together honest recommendations." data-es="Recorremos su propiedad con usted, hablamos sobre sus objetivos y preparamos recomendaciones honestas.">We walk your property with you, talk through your goals, and put together honest recommendations.</p>
+        </div>
+        <div class="process-step" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="100">
+          <div class="process-number">02</div>
+          <div class="process-icon"><i data-lucide="compass" aria-hidden="true"></i></div>
+          <h3 data-en="Design &amp; Planning" data-es="Diseño y Planificación">Design &amp; Planning</h3>
+          <p data-en="We turn that conversation into a clear plan and quote, so you know exactly what you're getting before work starts." data-es="Convertimos esa conversación en un plan y cotización claros, para que sepa exactamente qué recibirá antes de comenzar.">We turn that conversation into a clear plan and quote, so you know exactly what you're getting before work starts.</p>
+        </div>
+        <div class="process-step" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="200">
+          <div class="process-number">03</div>
+          <div class="process-icon"><i data-lucide="hard-hat" aria-hidden="true"></i></div>
+          <h3 data-en="Build &amp; Transform" data-es="Construcción y Transformación">Build &amp; Transform</h3>
+          <p data-en="Our crew executes the plan on schedule, cleans up after itself, and walks you through the finished result." data-es="Nuestro equipo ejecuta el plan a tiempo, limpia después de trabajar y le muestra el resultado final.">Our crew executes the plan on schedule, cleans up after itself, and walks you through the finished result.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       7. FEATURED PROJECTS / GALLERY
+  ========================================================= -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+        <span class="eyebrow" data-en="Our Work" data-es="Nuestro Trabajo">Our Work</span>
+        <h2 data-en="Recent projects around the Central Coast." data-es="Proyectos recientes en la Costa Central.">Recent projects around the Central Coast.</h2>
+      </div>
+
+      <div class="card-grid projects-grid">
+        <!-- PLACEHOLDER PHOTOS: images/project-1.jpg ... project-6.jpg — real completed-project photography.
+             Do not mix stock/AI images with real project photos in this grid. -->
+        <figure class="card project-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="0">
+          <div class="card-media placeholder-img"><i data-lucide="image" aria-hidden="true"></i></div>
+          <figcaption>
+            <span class="project-tag" data-en="Hardscaping" data-es="Hardscape">Hardscaping</span>
+            <span class="project-title" data-en="Orcutt Backyard Patio" data-es="Patio Trasero en Orcutt">Orcutt Backyard Patio</span>
+          </figcaption>
+        </figure>
+        <figure class="card project-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="100">
+          <div class="card-media placeholder-img"><i data-lucide="image" aria-hidden="true"></i></div>
+          <figcaption>
+            <span class="project-tag" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</span>
+            <span class="project-title" data-en="Santa Maria Front Yard Refresh" data-es="Renovación de Jardín Frontal en Santa Maria">Santa Maria Front Yard Refresh</span>
+          </figcaption>
+        </figure>
+        <figure class="card project-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="200">
+          <div class="card-media placeholder-img"><i data-lucide="image" aria-hidden="true"></i></div>
+          <figcaption>
+            <span class="project-tag" data-en="Irrigation" data-es="Riego">Irrigation</span>
+            <span class="project-title" data-en="Nipomo Estate Sprinkler Overhaul" data-es="Renovación de Riego en Finca de Nipomo">Nipomo Estate Sprinkler Overhaul</span>
+          </figcaption>
+        </figure>
+        <figure class="card project-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="300">
+          <div class="card-media placeholder-img"><i data-lucide="image" aria-hidden="true"></i></div>
+          <figcaption>
+            <span class="project-tag" data-en="Sod Installation" data-es="Instalación de Césped">Sod Installation</span>
+            <span class="project-title" data-en="Lompoc New-Build Lawn" data-es="Césped Nuevo en Lompoc">Lompoc New-Build Lawn</span>
+          </figcaption>
+        </figure>
+        <figure class="card project-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="400">
+          <div class="card-media placeholder-img"><i data-lucide="image" aria-hidden="true"></i></div>
+          <figcaption>
+            <span class="project-tag" data-en="Planting" data-es="Plantación">Planting</span>
+            <span class="project-title" data-en="Arroyo Grande Garden Beds" data-es="Jardines en Arroyo Grande">Arroyo Grande Garden Beds</span>
+          </figcaption>
+        </figure>
+        <figure class="card project-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="500">
+          <div class="card-media placeholder-img"><i data-lucide="image" aria-hidden="true"></i></div>
+          <figcaption>
+            <span class="project-tag" data-en="Tree Services" data-es="Servicios de Árboles">Tree Services</span>
+            <span class="project-title" data-en="Santa Maria Commercial Property" data-es="Propiedad Comercial en Santa Maria">Santa Maria Commercial Property</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       8. TESTIMONIALS
+  ========================================================= -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-head" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+        <span class="eyebrow" data-en="Testimonials" data-es="Testimonios">Testimonials</span>
+        <h2 data-en="What our clients say." data-es="Lo que dicen nuestros clientes.">What our clients say.</h2>
+      </div>
+
+      <div class="card-grid testimonials-grid">
+        <article class="card testimonial-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="0">
+          <div class="stars" aria-label="5 out of 5 stars">
+            <i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i>
+          </div>
+          <p class="testimonial-quote" data-en="Luna &amp; Sons redid our entire backyard and it looks better than we imagined. They showed up on time every single day." data-es="Luna &amp; Sons rehizo todo nuestro patio trasero y se ve mejor de lo que imaginamos. Llegaron a tiempo todos los días.">Luna &amp; Sons redid our entire backyard and it looks better than we imagined. They showed up on time every single day.</p>
+          <div class="testimonial-author">
+            <span class="author-name">Maria G.</span>
+            <span class="author-loc" data-en="Santa Maria, CA" data-es="Santa Maria, CA">Santa Maria, CA</span>
+          </div>
+        </article>
+
+        <article class="card testimonial-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="100">
+          <div class="stars" aria-label="5 out of 5 stars">
+            <i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i>
+          </div>
+          <p class="testimonial-quote" data-en="Professional from the first phone call to the final walkthrough. Our new irrigation system actually saved us money." data-es="Profesionales desde la primera llamada hasta la revisión final. Nuestro nuevo sistema de riego nos ahorró dinero.">Professional from the first phone call to the final walkthrough. Our new irrigation system actually saved us money.</p>
+          <div class="testimonial-author">
+            <span class="author-name">David R.</span>
+            <span class="author-loc" data-en="Orcutt, CA" data-es="Orcutt, CA">Orcutt, CA</span>
+          </div>
+        </article>
+
+        <article class="card testimonial-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="200">
+          <div class="stars" aria-label="5 out of 5 stars">
+            <i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i>
+          </div>
+          <p class="testimonial-quote" data-en="They installed sod for our new build and it's the healthiest lawn on the block. Highly recommend this crew." data-es="Instalaron césped en nuestra casa nueva y es el jardín más saludable de la cuadra. Recomiendo mucho a este equipo.">They installed sod for our new build and it's the healthiest lawn on the block. Highly recommend this crew.</p>
+          <div class="testimonial-author">
+            <span class="author-name">Jennifer L.</span>
+            <span class="author-loc" data-en="Nipomo, CA" data-es="Nipomo, CA">Nipomo, CA</span>
+          </div>
+        </article>
+
+        <article class="card testimonial-card" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="300">
+          <div class="stars" aria-label="5 out of 5 stars">
+            <i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i><i data-lucide="star" aria-hidden="true"></i>
+          </div>
+          <p class="testimonial-quote" data-en="We've used Luna &amp; Sons twice now — once for tree trimming and once for a full patio build. Both times, flawless." data-es="Hemos usado Luna &amp; Sons dos veces — una para poda de árboles y otra para un patio completo. Ambas veces, perfecto.">We've used Luna &amp; Sons twice now — once for tree trimming and once for a full patio build. Both times, flawless.</p>
+          <div class="testimonial-author">
+            <span class="author-name">Carlos M.</span>
+            <span class="author-loc" data-en="Lompoc, CA" data-es="Lompoc, CA">Lompoc, CA</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       9. FAQ
+  ========================================================= -->
+  <section class="faq">
+    <div class="container faq-layout">
+      <div class="faq-head" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+        <span class="eyebrow" data-en="FAQ" data-es="Preguntas Frecuentes">FAQ</span>
+        <h2 data-en="Common questions." data-es="Preguntas comunes.">Common questions.</h2>
+      </div>
+
+      <div class="faq-list" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="100">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="Are you licensed and insured?" data-es="¿Están licenciados y asegurados?">Are you licensed and insured?</span>
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            <p data-en="Yes — Luna &amp; Sons Landscaping is fully licensed (License #45178) and insured for every job we take on, big or small." data-es="Sí — Luna &amp; Sons Landscaping está completamente licenciado (Licencia #45178) y asegurado para cada trabajo que realizamos, grande o pequeño.">Yes — Luna &amp; Sons Landscaping is fully licensed (License #45178) and insured for every job we take on, big or small.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="Do you offer a warranty on your work?" data-es="¿Ofrecen garantía en su trabajo?">Do you offer a warranty on your work?</span>
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            <p data-en="Yes. Workmanship is guaranteed on every project, and we'll walk you through the specific plant and material warranties during your consultation." data-es="Sí. La mano de obra está garantizada en cada proyecto, y le explicaremos las garantías específicas de plantas y materiales durante su consulta.">Yes. Workmanship is guaranteed on every project, and we'll walk you through the specific plant and material warranties during your consultation.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="What areas do you serve?" data-es="¿Qué áreas atienden?">What areas do you serve?</span>
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            <p data-en="We're based in Santa Maria and serve the greater Central Coast, including Orcutt, Nipomo, Lompoc, and Arroyo Grande." data-es="Estamos ubicados en Santa Maria y atendemos toda la Costa Central, incluyendo Orcutt, Nipomo, Lompoc y Arroyo Grande.">We're based in Santa Maria and serve the greater Central Coast, including Orcutt, Nipomo, Lompoc, and Arroyo Grande.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="How long have you been in business?" data-es="¿Cuánto tiempo llevan en el negocio?">How long have you been in business?</span>
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            <p data-en="Luna &amp; Sons has been family-owned and operated since 2019, proudly serving the Central Coast ever since." data-es="Luna &amp; Sons ha sido una empresa familiar desde 2019, sirviendo con orgullo a la Costa Central desde entonces.">Luna &amp; Sons has been family-owned and operated since 2019, proudly serving the Central Coast ever since.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="Do you offer free estimates?" data-es="¿Ofrecen cotizaciones gratuitas?">Do you offer free estimates?</span>
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            <p data-en="Yes, every estimate is free with no obligation. Fill out the quote form or give us a call at (805) 268-2808." data-es="Sí, cada cotización es gratuita y sin compromiso. Complete el formulario o llámenos al (805) 268-2808.">Yes, every estimate is free with no obligation. Fill out the quote form or give us a call at (805) 268-2808.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       10. CTA / CONTACT
+  ========================================================= -->
+  <section class="contact-cta" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out">
+        <span class="eyebrow eyebrow-light" data-en="Get Started" data-es="Comience Hoy">Get Started</span>
+        <h2 data-en="Ready for a yard that works as hard as you do?" data-es="¿Listo para un jardín que trabaje tan duro como usted?">Ready for a yard that works as hard as you do?</h2>
+        <p data-en="Tell us what you're picturing and we'll take it from there — from first sketch to final walkthrough, Luna &amp; Sons handles it all." data-es="Cuéntenos lo que imagina y nosotros nos encargamos del resto — desde el primer boceto hasta la revisión final, Luna &amp; Sons se encarga de todo.">Tell us what you're picturing and we'll take it from there — from first sketch to final walkthrough, Luna &amp; Sons handles it all.</p>
+
+        <a class="contact-phone" href="tel:+18052682808">
+          <i data-lucide="phone" aria-hidden="true"></i>
+          <span>(805) 268-2808</span>
+        </a>
+
+        <div class="service-area">
+          <span class="eyebrow eyebrow-light" data-en="Service Area" data-es="Área de Servicio">Service Area</span>
+          <!-- Embedded via the no-API-key Google Maps embed endpoint, centered on Santa Maria, CA.
+               For a true service-radius overlay, swap this iframe for a Google Maps JavaScript API
+               embed with a Circle drawn using an API key. -->
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps?q=Santa+Maria,+CA&output=embed"
+              width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Map of Santa Maria, CA service area">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out" data-aos-delay="100">
+        <form class="contact-form" id="contact-form">
+          <h3 data-en="Request a Quote" data-es="Solicitar Cotización">Request a Quote</h3>
+
+          <div class="field">
+            <label for="c-name" data-en="Name*" data-es="Nombre*">Name*</label>
+            <input type="text" id="c-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="c-email" data-en="Email*" data-es="Correo Electrónico*">Email*</label>
+            <input type="email" id="c-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="c-phone" data-en="Phone" data-es="Teléfono">Phone</label>
+            <input type="tel" id="c-phone" name="phone" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="c-service" data-en="Service Interest" data-es="Servicio de Interés">Service Interest</label>
+            <select id="c-service" name="service">
+              <option value="" data-en="Select a service" data-es="Seleccione un servicio">Select a service</option>
+              <option value="design" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</option>
+              <option value="hardscaping" data-en="Hardscaping" data-es="Hardscape">Hardscaping</option>
+              <option value="irrigation" data-en="Irrigation Systems" data-es="Sistemas de Riego">Irrigation Systems</option>
+              <option value="planting" data-en="Planting" data-es="Plantación">Planting</option>
+              <option value="sod" data-en="Sod Installation" data-es="Instalación de Césped">Sod Installation</option>
+              <option value="tree" data-en="Tree Services" data-es="Servicios de Árboles">Tree Services</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="c-budget" data-en="Budget Range" data-es="Rango de Presupuesto">Budget Range</label>
+            <select id="c-budget" name="budget">
+              <option value="" data-en="Select a range" data-es="Seleccione un rango">Select a range</option>
+              <option value="under-5k">Under $5k</option>
+              <option value="5k-15k">$5k - $15k</option>
+              <option value="15k-30k">$15k - $30k</option>
+              <option value="30k-plus">$30k+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="c-message" data-en="Message" data-es="Mensaje">Message</label>
+            <textarea id="c-message" name="message" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-black quote-submit">
+            <span data-en="Send Request" data-es="Enviar Solicitud">Send Request</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col footer-brand">
+      <div class="footer-logo-mark">L&amp;S</div>
+      <p class="footer-tagline" data-en="Landscapes built to last." data-es="Paisajes construidos para durar.">Landscapes built to last.</p>
+      <p class="footer-area" data-en="Proudly serving Santa Maria &amp; the Central Coast, CA." data-es="Con orgullo servimos a Santa Maria y la Costa Central, CA.">Proudly serving Santa Maria &amp; the Central Coast, CA.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Luna & Sons on Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Luna & Sons on Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Luna & Sons on YouTube"><i data-lucide="youtube" aria-hidden="true"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
+      <ul>
+        <li><a href="#top" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="#about" data-en="About" data-es="Sobre Nosotros">About</a></li>
+        <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+        <li><a href="#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
+        <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-en="Services" data-es="Servicios">Services</h4>
+      <ul>
+        <li><a href="#services" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
+        <li><a href="#services" data-en="Hardscaping" data-es="Hardscape">Hardscaping</a></li>
+        <li><a href="#services" data-en="Irrigation Systems" data-es="Sistemas de Riego">Irrigation Systems</a></li>
+        <li><a href="#services" data-en="Planting" data-es="Plantación">Planting</a></li>
+        <li><a href="#services" data-en="Sod Installation" data-es="Instalación de Césped">Sod Installation</a></li>
+        <li><a href="#services" data-en="Tree Services" data-es="Servicios de Árboles">Tree Services</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+      <ul class="footer-contact">
+        <li><i data-lucide="map-pin" aria-hidden="true"></i><span data-en="Santa Maria, CA" data-es="Santa Maria, CA">Santa Maria, CA</span></li>
+        <li><i data-lucide="phone" aria-hidden="true"></i><a href="tel:+18052682808">(805) 268-2808</a></li>
+        <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:info@lunaandsonslandscaping.com">info@lunaandsonslandscaping.com</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>&copy; <span id="year"></span> <span data-en="Luna &amp; Sons Landscaping. All rights reserved." data-es="Luna &amp; Sons Landscaping. Todos los derechos reservados.">Luna &amp; Sons Landscaping. All rights reserved.</span></p>
+      <button class="lang-toggle lang-toggle-footer" type="button" aria-label="Switch language / Cambiar idioma">
+        <span class="lang-en-flag" data-active="true">EN</span>/<span class="lang-es-flag">ES</span>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
