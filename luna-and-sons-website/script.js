@@ -5,13 +5,47 @@
 document.addEventListener('DOMContentLoaded', () => {
   initIcons();
   initAOS();
+  initHeaderScroll();
   initMobileNav();
   initLangToggle();
   initCountUp();
   initFAQ();
   initForms();
+  initHeroSlideshow();
   document.getElementById('year').textContent = new Date().getFullYear();
 });
+
+// ---------------------------------------------------------
+// Header: transparent over the hero, solid once scrolled past a small threshold
+// ---------------------------------------------------------
+function initHeaderScroll() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const THRESHOLD = 60;
+
+  function update() {
+    header.classList.toggle('scrolled', window.scrollY > THRESHOLD);
+  }
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
+
+// ---------------------------------------------------------
+// Hero background slideshow — crossfades through images/hero-slide-*.jpg
+// ---------------------------------------------------------
+function initHeroSlideshow() {
+  const slides = document.querySelectorAll('.hero-slide');
+  if (slides.length < 2) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('is-active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('is-active');
+  }, 5000);
+}
 
 // ---------------------------------------------------------
 // Lucide icons
@@ -141,19 +175,79 @@ function initFAQ() {
 }
 
 // ---------------------------------------------------------
+// Simple math anti-spam check — generates "X + Y =" per form and validates
+// the answer on submit, without any third-party CAPTCHA service.
+// ---------------------------------------------------------
+function setUpCaptcha(form) {
+  const field = form.querySelector('.captcha-field');
+  const questionEl = form.querySelector('.captcha-question');
+  const input = form.querySelector('.captcha-answer');
+  const errorEl = form.querySelector('.captcha-error');
+  if (!field || !questionEl || !input) return null;
+
+  let a, b;
+  function newChallenge() {
+    a = Math.floor(Math.random() * 20) + 1;
+    b = Math.floor(Math.random() * 20) + 1;
+    questionEl.textContent = `${a} + ${b} =`;
+    input.value = '';
+    field.classList.remove('has-error');
+    errorEl.hidden = true;
+  }
+
+  newChallenge();
+
+  return {
+    validate() {
+      const answer = parseInt(input.value, 10);
+      const correct = !Number.isNaN(answer) && answer === a + b;
+      field.classList.toggle('has-error', !correct);
+      errorEl.hidden = correct;
+      input.setAttribute('aria-invalid', String(!correct));
+      return correct;
+    },
+    reset: newChallenge,
+  };
+}
+
+// ---------------------------------------------------------
+// Honeypot anti-spam field — a real user never sees or fills this input
+// (off-screen via CSS, not display:none, so form-filling bots still find it).
+// Any value in it means the submission is spam; reject it silently, with no
+// visible error, since a real visitor could never trigger this case.
+// ---------------------------------------------------------
+function isHoneypotTripped(form) {
+  const honeypot = form.querySelector('.honeypot-answer');
+  return !!(honeypot && honeypot.value.trim() !== '');
+}
+
+// ---------------------------------------------------------
 // Form submission (front-end only — no backend wired up yet)
 // ---------------------------------------------------------
 function initForms() {
   const forms = [document.getElementById('quick-quote-form'), document.getElementById('contact-form')];
   forms.forEach((form) => {
     if (!form) return;
+    const captcha = setUpCaptcha(form);
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      if (isHoneypotTripped(form)) {
+        return; // Silent reject — spam, not a real user, so no error shown.
+      }
+
+      if (captcha && !captcha.validate()) {
+        form.querySelector('.captcha-answer').focus();
+        return;
+      }
+
       const lang = document.documentElement.lang;
       alert(lang === 'es'
         ? 'Gracias. Nos pondremos en contacto pronto. (Este formulario aún no está conectado a un backend.)'
         : "Thanks — we'll be in touch soon. (This form isn't wired up to a backend yet.)");
       form.reset();
+      if (captcha) captcha.reset();
     });
   });
 }

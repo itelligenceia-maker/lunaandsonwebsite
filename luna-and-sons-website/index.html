@@ -24,7 +24,7 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a href="#top" class="logo" aria-label="Luna &amp; Sons Landscaping home">
-      <span class="logo-mark">L&amp;S</span>
+      <img class="logo-mark" src="images/logo-moon.png" alt="Luna &amp; Sons moon logo">
       <span class="logo-text">
         <span class="logo-name">Luna &amp; Sons</span>
         <span class="logo-sub" data-en="Landscaping" data-es="Paisajismo">Landscaping</span>
@@ -61,15 +61,20 @@
        1. HERO
   ========================================================= -->
   <section class="hero">
-    <!-- PLACEHOLDER PHOTO: Full-bleed hero image. Needs a REAL photo (not AI/stock) of a
-         finished Luna & Sons hardscape/landscape project in Santa Maria — ideally shot at
-         dusk/golden hour to lean into the brand's twilight-purple lighting motif.
-         Suggested file: images/hero-santa-maria-project.jpg (2400x1400 min, landscape) -->
-    <div class="hero-media placeholder-img" role="img" aria-label="Placeholder: photo of a completed Luna & Sons landscaping project">
-      <i data-lucide="image" aria-hidden="true"></i>
-      <span data-en="Hero photo goes here — real project photo, dusk lighting preferred" data-es="Foto principal aquí — foto real del proyecto, se prefiere luz de atardecer">Hero photo goes here — real project photo, dusk lighting preferred</span>
+    <!-- Rotating background slideshow of real Luna & Sons project photos. Add more slides by
+         dropping another images/hero-slide-N.jpg file in and copying one of these div lines. -->
+    <div class="hero-media" role="img" aria-label="Photos of completed Luna & Sons landscaping projects">
+      <div class="hero-slide is-active" style="background-image:url('images/hero-slide-1.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/hero-slide-2.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/hero-slide-5.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/hero-slide-7.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/hero-slide-8.jpg')"></div>
     </div>
     <div class="hero-scrim"></div>
+
+    <!-- Standalone moon logo mark, bridging the hero/quote-strip seam. Save the brand's moon
+         graphic as images/logo-moon.png (or .svg) and it will appear here automatically. -->
+    <img class="hero-moon-logo" src="images/logo-moon.png" alt="Luna &amp; Sons moon logo" onerror="this.style.display='none'">
 
     <div class="container hero-content" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out">
       <span class="badge badge-light">
@@ -97,13 +102,35 @@
   </section>
 
   <!-- =========================================================
+       WELCOME
+       Pulled up over the hero via negative margin so the moon badge
+       straddles the seam between the two sections, then gets generous
+       top padding of its own so its heading/copy sit clear of the moon.
+  ========================================================= -->
+  <section class="welcome">
+    <div class="container">
+      <div class="welcome-inner" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+        <h2 data-en="Welcome to Luna &amp; Sons Landscaping" data-es="Bienvenido a Luna &amp; Sons Landscaping">Welcome to Luna &amp; Sons Landscaping</h2>
+        <p data-en="Since 2019, our family has helped homeowners and businesses across the Central Coast turn ordinary yards into outdoor spaces they're proud of. Every project — from first design sketch to final walkthrough — is handled by the same licensed, insured crew, with no subcontractors and no surprises. Take a look at what we do below, or reach out for a free estimate today." data-es="Desde 2019, nuestra familia ha ayudado a propietarios y negocios de la Costa Central a transformar jardines comunes en espacios exteriores de los que se sienten orgullosos. Cada proyecto — desde el primer boceto de diseño hasta la revisión final — es realizado por el mismo equipo licenciado y asegurado, sin subcontratistas y sin sorpresas. Conozca lo que hacemos a continuación, o contáctenos para una cotización gratuita hoy mismo.">Since 2019, our family has helped homeowners and businesses across the Central Coast turn ordinary yards into outdoor spaces they're proud of. Every project — from first design sketch to final walkthrough — is handled by the same licensed, insured crew, with no subcontractors and no surprises. Take a look at what we do below, or reach out for a free estimate today.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
        2. QUICK QUOTE STRIP
   ========================================================= -->
   <section class="quote-strip" id="quote">
+    <div class="quote-banner">
+      <h2 data-en="Request a Free Quote" data-es="Solicite una Cotización Gratis">Request a Free Quote</h2>
+    </div>
     <div class="container">
       <form class="quote-form" id="quick-quote-form" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+        <!-- Honeypot: invisible to real users, bots that auto-fill every field will trip it. -->
+        <div class="honeypot-field" aria-hidden="true">
+          <label for="qq-company">Company</label>
+          <input type="text" id="qq-company" name="company" class="honeypot-answer" tabindex="-1" autocomplete="off">
+        </div>
         <div class="quote-form-head">
-          <h2 data-en="Get a fast, free estimate" data-es="Obtenga una cotización rápida y gratuita">Get a fast, free estimate</h2>
           <p data-en="Tell us a little about your project — we'll call you back within one business day." data-es="Cuéntenos sobre su proyecto — le llamaremos dentro de un día hábil.">Tell us a little about your project — we'll call you back within one business day.</p>
         </div>
 
@@ -115,6 +142,14 @@
           <div class="field">
             <label for="qq-phone" data-en="Phone" data-es="Teléfono">Phone</label>
             <input type="tel" id="qq-phone" name="phone" autocomplete="tel" required>
+          </div>
+          <div class="field">
+            <label for="qq-email" data-en="Email" data-es="Correo Electrónico">Email</label>
+            <input type="email" id="qq-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="qq-address" data-en="Address" data-es="Dirección">Address</label>
+            <input type="text" id="qq-address" name="address" autocomplete="street-address" required>
           </div>
           <div class="field">
             <label for="qq-service" data-en="Service" data-es="Servicio">Service</label>
@@ -138,10 +173,20 @@
               <option value="30k-plus">$30k+</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary quote-submit">
-            <span data-en="Request Estimate" data-es="Solicitar Cotización">Request Estimate</span>
-          </button>
         </div>
+
+        <div class="field captcha-field">
+          <label for="qq-captcha" data-en="Quick check" data-es="Verificación rápida">Quick check</label>
+          <div class="captcha-row">
+            <span class="captcha-question" aria-hidden="true"></span>
+            <input type="text" inputmode="numeric" autocomplete="off" id="qq-captcha" class="captcha-answer" aria-label="Answer the math question to verify you're human">
+          </div>
+          <p class="field-error captcha-error" data-en="That's not quite right — please try again." data-es="Eso no es correcto — intente de nuevo." hidden aria-live="polite">That's not quite right — please try again.</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary quote-submit">
+          <span data-en="Request Estimate" data-es="Solicitar Cotización">Request Estimate</span>
+        </button>
       </form>
     </div>
   </section>
@@ -178,20 +223,30 @@
        4. ABOUT
   ========================================================= -->
   <section class="about" id="about">
+    <!-- Row 1: text left, image right -->
     <div class="container about-grid">
-      <div class="about-media placeholder-img placeholder-portrait" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out" role="img" aria-label="Placeholder: photo of the Luna & Sons family or crew on site">
+      <div class="about-copy" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out">
+        <span class="eyebrow" data-en="About Us" data-es="Sobre Nosotros">About Us</span>
+        <h2 data-en="A family name on every yard we touch." data-es="Un nombre familiar en cada jardín que tocamos.">A family name on every yard we touch.</h2>
+        <p data-en="Luna &amp; Sons Landscaping has been family-owned and operated in Santa Maria since 2019. It started small — one truck, a trailer of hand tools, and a handful of neighborhood lawns — run by a father and his two sons who are still out on job sites today. Word spread yard by yard, and what began as weekend mowing and cleanup work grew into a full-service landscaping company serving homeowners and businesses across the Central Coast." data-es="Luna &amp; Sons Landscaping ha sido una empresa familiar en Santa Maria desde 2019. Comenzó de manera humilde — un camión, un remolque de herramientas y un puñado de jardines del vecindario — dirigido por un padre y sus dos hijos, quienes todavía están presentes en cada obra. La voz se corrió jardín por jardín, y lo que comenzó como trabajos de corte y limpieza los fines de semana se convirtió en una compañía de paisajismo de servicio completo que atiende a hogares y negocios en toda la Costa Central.">Luna &amp; Sons Landscaping has been family-owned and operated in Santa Maria since 2019. It started small — one truck, a trailer of hand tools, and a handful of neighborhood lawns — run by a father and his two sons who are still out on job sites today. Word spread yard by yard, and what began as weekend mowing and cleanup work grew into a full-service landscaping company serving homeowners and businesses across the Central Coast.</p>
+        <p data-en="The way we work hasn't changed since that first truck. We show up when we say we will, we build things that last, and we stand behind every project with our own name — because it is our name, not a franchise or a rotating crew of subcontractors. The same team that walks your property with you on day one is the same team that finishes the job." data-es="La forma en que trabajamos no ha cambiado desde aquel primer camión. Llegamos cuando decimos que lo haremos, construimos cosas que duran, y respaldamos cada proyecto con nuestro propio nombre — porque es nuestro nombre, no una franquicia ni un equipo rotativo de subcontratistas. El mismo equipo que recorre su propiedad con usted el primer día es el que termina el trabajo.">The way we work hasn't changed since that first truck. We show up when we say we will, we build things that last, and we stand behind every project with our own name — because it is our name, not a franchise or a rotating crew of subcontractors. The same team that walks your property with you on day one is the same team that finishes the job.</p>
+        <p data-en="We're fully licensed and insured (License #45178), so every design, hardscape, and irrigation job is backed by real accountability — not just a handshake. And because we've spent years working Central Coast soil and weather, we know what actually thrives here, from drought-tolerant plantings to irrigation systems built around our water restrictions — not just what looks good on paper." data-es="Estamos completamente licenciados y asegurados (Licencia #45178), por lo que cada trabajo de diseño, hardscape y riego está respaldado por responsabilidad real — no solo un apretón de manos. Y como hemos pasado años trabajando con la tierra y el clima de la Costa Central, sabemos lo que realmente prospera aquí, desde plantas resistentes a la sequía hasta sistemas de riego diseñados para nuestras restricciones de agua — no solo lo que se ve bien en el papel.">We're fully licensed and insured (License #45178), so every design, hardscape, and irrigation job is backed by real accountability — not just a handshake. And because we've spent years working Central Coast soil and weather, we know what actually thrives here, from drought-tolerant plantings to irrigation systems built around our water restrictions — not just what looks good on paper.</p>
+      </div>
+
+      <div class="about-media placeholder-img" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out" data-aos-delay="100" role="img" aria-label="Placeholder: photo of the Luna & Sons family or crew on site">
         <!-- PLACEHOLDER PHOTO: A real photo of the Luna family / crew on a job site.
              Suggested file: images/about-crew.jpg (portrait or square crop) -->
         <i data-lucide="image" aria-hidden="true"></i>
         <span data-en="Crew or family photo goes here" data-es="Foto del equipo o la familia aquí">Crew or family photo goes here</span>
       </div>
+    </div>
+
+    <!-- Row 2: image left, text right -->
+    <div class="container about-grid about-grid-row2">
+      <img class="about-media" src="images/hero-slide-7.jpg" alt="Completed Luna &amp; Sons landscaping project — front yard with stone walkway and olive tree" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out">
 
       <div class="about-copy" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out" data-aos-delay="100">
-        <span class="eyebrow" data-en="About Us" data-es="Sobre Nosotros">About Us</span>
-        <h2 data-en="A family name on every yard we touch." data-es="Un nombre familiar en cada jardín que tocamos.">A family name on every yard we touch.</h2>
-        <p data-en="Luna &amp; Sons Landscaping has been family-owned and operated in Santa Maria since 2019. What started as one truck and a handful of neighborhood yards has grown into a full-service landscaping company serving homeowners and businesses across the Central Coast — but the way we work hasn't changed. We show up when we say we will, we build things that last, and we stand behind every project with our own name." data-es="Luna &amp; Sons Landscaping ha sido una empresa familiar en Santa Maria desde 2019. Lo que comenzó como un camión y unos cuantos jardines del vecindario se ha convertido en una compañía de paisajismo de servicio completo que atiende a hogares y negocios en toda la Costa Central — pero la forma en que trabajamos no ha cambiado. Llegamos cuando decimos que lo haremos, construimos cosas que duran, y respaldamos cada proyecto con nuestro propio nombre.">Luna &amp; Sons Landscaping has been family-owned and operated in Santa Maria since 2019. What started as one truck and a handful of neighborhood yards has grown into a full-service landscaping company serving homeowners and businesses across the Central Coast — but the way we work hasn't changed. We show up when we say we will, we build things that last, and we stand behind every project with our own name.</p>
-        <p data-en="We're fully licensed and insured (License #45178), so every design, hardscape, and irrigation job is backed by real accountability — not just a handshake." data-es="Estamos completamente licenciados y asegurados (Licencia #45178), por lo que cada trabajo de diseño, hardscape y riego está respaldado por responsabilidad real — no solo un apretón de manos.">We're fully licensed and insured (License #45178), so every design, hardscape, and irrigation job is backed by real accountability — not just a handshake.</p>
-
+        <h2 data-en="Why Homeowners Trust Us" data-es="Por Qué Los Propietarios Confían en Nosotros">Why Homeowners Trust Us</h2>
         <ul class="about-facts">
           <li><i data-lucide="check" aria-hidden="true"></i><span data-en="Family-owned &amp; operated since 2019" data-es="Familiar desde 2019">Family-owned &amp; operated since 2019</span></li>
           <li><i data-lucide="check" aria-hidden="true"></i><span data-en="Licensed &amp; insured — License #45178" data-es="Licenciado y asegurado — Licencia #45178">Licensed &amp; insured — License #45178</span></li>
@@ -530,6 +585,11 @@
 
       <div class="contact-form-wrap" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out" data-aos-delay="100">
         <form class="contact-form" id="contact-form">
+          <!-- Honeypot: invisible to real users, bots that auto-fill every field will trip it. -->
+          <div class="honeypot-field" aria-hidden="true">
+            <label for="c-company">Company</label>
+            <input type="text" id="c-company" name="company" class="honeypot-answer" tabindex="-1" autocomplete="off">
+          </div>
           <h3 data-en="Request a Quote" data-es="Solicitar Cotización">Request a Quote</h3>
 
           <div class="field">
@@ -571,6 +631,15 @@
             <textarea id="c-message" name="message" rows="4"></textarea>
           </div>
 
+          <div class="field captcha-field">
+            <label for="c-captcha" data-en="Quick check" data-es="Verificación rápida">Quick check</label>
+            <div class="captcha-row">
+              <span class="captcha-question" aria-hidden="true"></span>
+              <input type="text" inputmode="numeric" autocomplete="off" id="c-captcha" class="captcha-answer" aria-label="Answer the math question to verify you're human">
+            </div>
+            <p class="field-error captcha-error" data-en="That's not quite right — please try again." data-es="Eso no es correcto — intente de nuevo." hidden aria-live="polite">That's not quite right — please try again.</p>
+          </div>
+
           <button type="submit" class="btn btn-black quote-submit">
             <span data-en="Send Request" data-es="Enviar Solicitud">Send Request</span>
           </button>
@@ -587,7 +656,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-col footer-brand">
-      <div class="footer-logo-mark">L&amp;S</div>
+      <img class="footer-logo-mark" src="images/logo-moon.png" alt="Luna &amp; Sons moon logo">
       <p class="footer-tagline" data-en="Landscapes built to last." data-es="Paisajes construidos para durar.">Landscapes built to last.</p>
       <p class="footer-area" data-en="Proudly serving Santa Maria &amp; the Central Coast, CA." data-es="Con orgullo servimos a Santa Maria y la Costa Central, CA.">Proudly serving Santa Maria &amp; the Central Coast, CA.</p>
       <div class="footer-social">
