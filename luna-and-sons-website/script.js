@@ -134,6 +134,10 @@ function initLangToggle() {
       const value = lang === 'es' ? el.dataset.es : el.dataset.en;
       if (value !== undefined) el.innerHTML = value;
     });
+    document.querySelectorAll('[data-alt-en]').forEach((el) => {
+      const value = lang === 'es' ? el.dataset.altEs : el.dataset.altEn;
+      if (value !== undefined) el.setAttribute('alt', value);
+    });
     document.querySelectorAll('.lang-en-flag').forEach((el) => el.setAttribute('data-active', String(lang === 'en')));
     document.querySelectorAll('.lang-es-flag').forEach((el) => el.setAttribute('data-active', String(lang === 'es')));
     localStorage.setItem(STORAGE_KEY, lang);
@@ -251,7 +255,7 @@ function isHoneypotTripped(form) {
 // Form submission (front-end only — no backend wired up yet)
 // ---------------------------------------------------------
 function initForms() {
-  const forms = [document.getElementById('quick-quote-form'), document.getElementById('contact-form')];
+  const forms = [document.getElementById('quick-quote-form'), document.getElementById('contact-form'), document.getElementById('page-contact-form')];
   forms.forEach((form) => {
     if (!form) return;
     const captcha = setUpCaptcha(form);

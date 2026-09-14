@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Luna &amp; Sons Landscaping</title>
+<meta name="description" content="Request a free landscaping estimate from Luna &amp; Sons Landscaping in Santa Maria, CA. Tell us about your project and a team member will reach out within one business day.">
+
+<!-- Fonts: Fraunces (confident serif for headlines) + Inter (clean sans for body/nav) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS (Animate On Scroll) - restrained fade-up reveals only -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- =========================================================
+     HEADER / NAV
+========================================================= -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo" aria-label="Luna &amp; Sons Landscaping home">
+      <img class="logo-mark" src="../images/logo-moon.png" alt="Luna &amp; Sons moon logo">
+      <span class="logo-text">
+        <span class="logo-name">Luna &amp; Sons</span>
+        <span class="logo-sub" data-en="Landscaping" data-es="Paisajismo">Landscaping</span>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="../index.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li class="has-dropdown">
+          <div class="nav-link-wrap">
+            <a href="../index.html#services" data-en="Services" data-es="Servicios">Services</a>
+            <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="services-dropdown" aria-label="Toggle services menu">
+              <i data-lucide="chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+          <ul class="dropdown-menu" id="services-dropdown">
+            <li><a href="../services/landscape-design/index.html" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
+            <li><a href="../services/landscape-construction/index.html" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
+            <li><a href="../services/landscape-management/index.html" data-en="Landscape Management" data-es="Manejo de Paisaje">Landscape Management</a></li>
+          </ul>
+        </li>
+        <li><a href="../index.html#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
+        <li><a href="index.html" class="active" aria-current="page" data-en="Contact" data-es="Contacto">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+18052682808">
+        <i data-lucide="phone" aria-hidden="true"></i>
+        <span>(805) 268-2808</span>
+      </a>
+      <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch language / Cambiar idioma">
+        <span class="lang-en-flag" data-active="true">EN</span>/<span class="lang-es-flag">ES</span>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- =========================================================
+       COMPACT PAGE BANNER
+       Same small hero band used on the service pages — gives the fixed,
+       transparent header a backdrop to sit on; without it, white nav text
+       would land directly on this page's plain white background at the top.
+  ========================================================= -->
+  <div class="service-accent-bar"></div>
+  <section class="service-hero">
+    <div class="service-hero-media placeholder-img placeholder-img--bleed" role="img" aria-label="Placeholder: image coming soon">
+      <i data-lucide="image" aria-hidden="true"></i>
+      <span>Image coming soon</span>
+    </div>
+    <div class="service-hero-scrim"></div>
+    <div class="container service-hero-content" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out">
+      <h1 data-en="Contact" data-es="Contacto">Contact</h1>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TWO-COLUMN CONTACT SECTION
+  ========================================================= -->
+  <section class="contact-page-section">
+    <div class="container contact-page-grid">
+
+      <div class="contact-page-form-col" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+        <h2 class="contact-page-heading" data-en="Ready to Plan Your Space?" data-es="¿Listo para Planificar su Espacio?">Ready to Plan Your Space?</h2>
+        <p class="contact-page-intro" data-en="Fill out the form below and a member of our team will reach out within one business day." data-es="Complete el formulario a continuación y un miembro de nuestro equipo se pondrá en contacto dentro de un día hábil.">Fill out the form below and a member of our team will reach out within one business day.</p>
+
+        <form class="contact-page-form" id="page-contact-form">
+          <!-- Honeypot: invisible to real users, bots that auto-fill every field will trip it. -->
+          <div class="honeypot-field" aria-hidden="true">
+            <label for="pc-company">Company</label>
+            <input type="text" id="pc-company" name="company" class="honeypot-answer" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field field--floating">
+            <input type="text" id="pc-name" name="name" autocomplete="name" placeholder=" " required>
+            <label for="pc-name" data-en="Name" data-es="Nombre">Name</label>
+          </div>
+          <div class="field field--floating">
+            <input type="email" id="pc-email" name="email" autocomplete="email" placeholder=" " required>
+            <label for="pc-email" data-en="Email Address" data-es="Correo Electrónico">Email Address</label>
+          </div>
+          <div class="field field--floating">
+            <input type="tel" id="pc-phone" name="phone" autocomplete="tel" placeholder=" ">
+            <label for="pc-phone" data-en="Phone Number" data-es="Número de Teléfono">Phone Number</label>
+          </div>
+          <div class="field field--floating">
+            <input type="text" id="pc-address" name="address" autocomplete="street-address" placeholder=" ">
+            <label for="pc-address" data-en="Property Address" data-es="Dirección de la Propiedad">Property Address</label>
+          </div>
+          <div class="field">
+            <label for="pc-service" data-en="Services" data-es="Servicios">Services</label>
+            <select id="pc-service" name="service" required>
+              <option value="" selected disabled data-en="Select a service" data-es="Seleccione un servicio">Select a service</option>
+              <option value="design" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</option>
+              <option value="construction" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</option>
+              <option value="management" data-en="Landscape Management" data-es="Manejo de Paisaje">Landscape Management</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pc-budget" data-en="Budget" data-es="Presupuesto">Budget</label>
+            <select id="pc-budget" name="budget">
+              <option value="" selected disabled data-en="Select a range" data-es="Seleccione un rango">Select a range</option>
+              <option value="under-5k" data-en="Under $5k" data-es="Menos de $5,000">Under $5k</option>
+              <option value="5k-15k" data-en="$5k - $15k" data-es="$5,000 - $15,000">$5k - $15k</option>
+              <option value="15k-30k" data-en="$15k - $30k" data-es="$15,000 - $30,000">$15k - $30k</option>
+              <option value="30k-plus" data-en="$30k+" data-es="Más de $30,000">$30k+</option>
+            </select>
+          </div>
+          <div class="field field--floating">
+            <textarea id="pc-message" name="message" rows="6" placeholder=" "></textarea>
+            <label for="pc-message" data-en="Message" data-es="Mensaje">Message</label>
+          </div>
+
+          <div class="field captcha-field">
+            <label for="pc-captcha" data-en="Quick check" data-es="Verificación rápida">Quick check</label>
+            <div class="captcha-row">
+              <span class="captcha-question" aria-hidden="true"></span>
+              <input type="text" inputmode="numeric" autocomplete="off" id="pc-captcha" class="captcha-answer" aria-label="Answer the math question to verify you're human">
+            </div>
+            <p class="field-error captcha-error" data-en="That's not quite right — please try again." data-es="Eso no es correcto — intente de nuevo." hidden aria-live="polite">That's not quite right — please try again.</p>
+          </div>
+
+          <button type="submit" class="btn btn-primary contact-page-submit">
+            <span data-en="Request A Quote" data-es="Solicitar Cotización">Request A Quote</span>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class="contact-page-info-col" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="100">
+        <img class="contact-page-photo" src="../images/luna-sons-flagstone-patio-01.jpg" width="1600" height="1292" alt="Flagstone patio with a natural stone accent feature in a completed Luna & Sons backyard" data-alt-en="Flagstone patio with a natural stone accent feature in a completed Luna & Sons backyard" data-alt-es="Patio de piedra laja con un acento de piedra natural en un patio trasero terminado por Luna & Sons" loading="lazy">
+        <ul class="contact-page-details">
+          <li><i data-lucide="map-pin" aria-hidden="true"></i><span>Santa Maria, CA</span></li>
+          <li><i data-lucide="phone" aria-hidden="true"></i><a href="tel:+18052682808">(805) 268-2808</a></li>
+          <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:info@lunaandsonslandscaping.com">info@lunaandsonslandscaping.com</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="service-footer">
+  <div class="container">
+    <div class="service-footer-brand" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+      <img class="service-footer-logo" src="../images/logo/luna-sons-moon.jpg" width="900" height="900" alt="Luna & Sons Landscaping moon logo" loading="lazy">
+      <div class="service-footer-wordmark">
+        <span class="service-footer-name">Luna &amp; Sons</span>
+        <span class="service-footer-sub"><span class="closing-line"></span><span data-en="Landscaping" data-es="Paisajismo">Landscaping</span><span class="closing-line"></span></span>
+      </div>
+      <p class="service-footer-tagline" data-en="Landscapes built to last." data-es="Paisajes construidos para durar.">Landscapes built to last.</p>
+      <p class="service-footer-contact-line">
+        <a href="tel:+18052682808">(805) 268-2808</a> &middot; License #45178
+      </p>
+      <a class="btn btn-primary service-footer-review" href="https://search.google.com/local/writereview?placeid=REPLACE_WITH_GOOGLE_PLACE_ID" target="_blank" rel="noopener">
+        <span data-en="Leave a Review" data-es="Dejar una Reseña">Leave a Review</span>
+        <i data-lucide="star" aria-hidden="true"></i>
+      </a>
+      <div class="service-footer-social">
+        <a href="#" aria-label="Luna & Sons on Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Luna & Sons on Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Luna & Sons on YouTube"><i data-lucide="youtube" aria-hidden="true"></i></a>
+      </div>
+    </div>
+
+    <div class="service-footer-links">
+      <div class="service-footer-col">
+        <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
+        <ul>
+          <li><a href="../index.html" data-en="Home" data-es="Inicio">Home</a></li>
+          <li><a href="../index.html#about" data-en="About" data-es="Sobre Nosotros">About</a></li>
+          <li><a href="../index.html#services" data-en="Services" data-es="Servicios">Services</a></li>
+          <li><a href="../index.html#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
+          <li><a href="index.html" data-en="Contact" data-es="Contacto">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="service-footer-col">
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
+        <ul>
+          <li><a href="../index.html#services" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
+          <li><a href="../index.html#services" data-en="Hardscaping" data-es="Hardscape">Hardscaping</a></li>
+          <li><a href="../index.html#services" data-en="Irrigation Systems" data-es="Sistemas de Riego">Irrigation Systems</a></li>
+          <li><a href="../index.html#services" data-en="Planting" data-es="Plantación">Planting</a></li>
+          <li><a href="../index.html#services" data-en="Sod Installation" data-es="Instalación de Césped">Sod Installation</a></li>
+          <li><a href="../index.html#services" data-en="Tree Services" data-es="Servicios de Árboles">Tree Services</a></li>
+        </ul>
+      </div>
+
+      <div class="service-footer-col">
+        <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+        <ul class="service-footer-contact-list">
+          <li><i data-lucide="map-pin" aria-hidden="true"></i><span data-en="Santa Maria, CA" data-es="Santa Maria, CA">Santa Maria, CA</span></li>
+          <li><i data-lucide="phone" aria-hidden="true"></i><a href="tel:+18052682808">(805) 268-2808</a></li>
+          <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:info@lunaandsonslandscaping.com">info@lunaandsonslandscaping.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-footer-bottom">
+    <div class="container service-footer-bottom-inner">
+      <p>&copy; <span id="year"></span> <span data-en="Luna &amp; Sons Landscaping. All rights reserved." data-es="Luna &amp; Sons Landscaping. Todos los derechos reservados.">Luna &amp; Sons Landscaping. All rights reserved.</span></p>
+      <button class="lang-toggle" type="button" aria-label="Switch language / Cambiar idioma">
+        <span class="lang-en-flag" data-active="true">EN</span>/<span class="lang-es-flag">ES</span>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>
