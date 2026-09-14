@@ -34,7 +34,19 @@
     <nav class="main-nav" id="main-nav" aria-label="Primary">
       <ul>
         <li><a href="#top" data-en="Home" data-es="Inicio">Home</a></li>
-        <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+        <li class="has-dropdown">
+          <div class="nav-link-wrap">
+            <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+            <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="services-dropdown" aria-label="Toggle services menu">
+              <i data-lucide="chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+          <ul class="dropdown-menu" id="services-dropdown">
+            <li><a href="services/landscape-design/index.html" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
+            <li><a href="services/landscape-construction/index.html" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
+            <li><a href="services/landscape-management/index.html" data-en="Landscape Management" data-es="Manejo de Paisaje">Landscape Management</a></li>
+          </ul>
+        </li>
         <li><a href="#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
         <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
       </ul>

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAOS();
   initHeaderScroll();
   initMobileNav();
+  initServicesDropdown();
   initLangToggle();
   initCountUp();
   initFAQ();
@@ -89,6 +90,31 @@ function initMobileNav() {
       toggle.setAttribute('aria-expanded', 'false');
       toggle.innerHTML = '<i data-lucide="menu" aria-hidden="true"></i>';
       if (window.lucide) window.lucide.createIcons();
+    });
+  });
+}
+
+// ---------------------------------------------------------
+// Services dropdown (click-to-toggle; also hoverable on desktop via CSS)
+// ---------------------------------------------------------
+function initServicesDropdown() {
+  document.querySelectorAll('.has-dropdown').forEach((item) => {
+    const toggle = item.querySelector('.dropdown-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.has-dropdown.open').forEach((item) => {
+      if (!item.contains(e.target)) {
+        item.classList.remove('open');
+        item.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+      }
     });
   });
 }
