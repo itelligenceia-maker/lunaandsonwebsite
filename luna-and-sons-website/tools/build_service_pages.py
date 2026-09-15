@@ -273,11 +273,8 @@ def render_footer():
         <h4 data-en="Services" data-es="Servicios">Services</h4>
         <ul>
           <li><a href="../../index.html#services" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
-          <li><a href="../../index.html#services" data-en="Hardscaping" data-es="Hardscape">Hardscaping</a></li>
-          <li><a href="../../index.html#services" data-en="Irrigation Systems" data-es="Sistemas de Riego">Irrigation Systems</a></li>
-          <li><a href="../../index.html#services" data-en="Planting" data-es="Plantación">Planting</a></li>
-          <li><a href="../../index.html#services" data-en="Sod Installation" data-es="Instalación de Césped">Sod Installation</a></li>
-          <li><a href="../../index.html#services" data-en="Tree Services" data-es="Servicios de Árboles">Tree Services</a></li>
+          <li><a href="../../index.html#services" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
+          <li><a href="../../index.html#services" data-en="Landscape Management" data-es="Manejo de Paisaje">Landscape Management</a></li>
         </ul>
       </div>
 

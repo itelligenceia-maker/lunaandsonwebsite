@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initServicesDropdown();
   initLangToggle();
-  initCountUp();
   initFAQ();
   initForms();
   initHeroSlideshow();
@@ -148,42 +147,6 @@ function initLangToggle() {
   });
 
   if (currentLang !== 'en') applyLang(currentLang);
-}
-
-// ---------------------------------------------------------
-// Trust bar count-up on scroll into view
-// ---------------------------------------------------------
-function initCountUp() {
-  const numbers = document.querySelectorAll('.trust-number[data-count], .trust-number[data-count-since]');
-  if (!numbers.length) return;
-
-  const animate = (el) => {
-    const target = el.dataset.countSince
-      ? new Date().getFullYear() - parseInt(el.dataset.countSince, 10)
-      : parseInt(el.dataset.count, 10);
-    const suffix = el.dataset.suffix || '';
-    const duration = 1400;
-    const start = performance.now();
-
-    function tick(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      el.textContent = Math.round(eased * target) + suffix;
-      if (progress < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        animate(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-
-  numbers.forEach((el) => observer.observe(el));
 }
 
 // ---------------------------------------------------------

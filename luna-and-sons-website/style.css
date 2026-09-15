@@ -102,7 +102,7 @@ p { margin: 0 0 var(--space-3); color: var(--text-body); }
 
 /* The header is now fixed (see HEADER section) so anchor-linked sections need their
    own scroll offset, or the fixed header would cover their top edge when jumped to. */
-#quote, #about, #services, #projects, #contact {
+#quote, #about, #services, #contact {
   scroll-margin-top: 104px;
 }
 
@@ -256,7 +256,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* Unscrolled/transparent header sits over the hero photo — logo & nav read in white/light
    tones here, then switch to the dark palette once .scrolled adds the solid background. */
 .logo-name {
-  font-family: var(--font-serif); font-weight: 600; font-size: 1.5rem;
+  font-family: var(--font-serif); font-weight: 600; font-size: 1.65rem;
   color: var(--text-inverse);
   transition: color var(--transition-med);
 }
@@ -563,6 +563,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border-color: var(--color-plum);
 }
 
+/* Selects: strip the native browser look, add a custom plum chevron since
+   appearance:none also removes the default arrow. */
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--color-white);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234B1D63' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
 /* Honeypot anti-spam field — off-screen via position, not display:none/visibility:hidden,
    since bots that auto-fill forms often skip fields hidden those ways but still find this. */
 .honeypot-field {
@@ -595,42 +608,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .field.has-error input { border-color: #B3261E; }
 
 /* =========================================================
-   TRUST BAR
-========================================================= */
-.trust-bar { background: var(--color-white); padding: var(--space-7) 0; }
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-5);
-  text-align: center;
-}
-.trust-stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.trust-stat svg { width: 26px; height: 26px; color: var(--color-plum); margin-bottom: var(--space-2); }
-.trust-number { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: var(--color-black); }
-.trust-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
-
-/* =========================================================
    ABOUT
 ========================================================= */
 .about { padding: var(--space-8) 0; background: var(--color-white); }
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-7);
-  align-items: center;
-}
-/* Second row (image left, text right) — consistent spacing below the first row. */
-.about-grid + .about-grid { margin-top: var(--space-8); }
-.about-media {
-  aspect-ratio: 4 / 5;
-  width: 100%;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-}
-.about-copy .eyebrow { display: block; }
-.about-facts { display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-4); }
-.about-facts li { display: flex; align-items: center; gap: var(--space-2); font-weight: 600; color: var(--color-black); }
-.about-facts svg { width: 20px; height: 20px; color: var(--color-plum); flex-shrink: 0; }
+.about-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+.about-inner .eyebrow { display: block; }
+.about-inner p { font-size: 1.1rem; }
+.about-inner p:last-child { margin-bottom: 0; }
 
 /* =========================================================
    CARD GRID (shared pattern: services / projects / testimonials)
@@ -648,52 +632,50 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .card-media { aspect-ratio: 4 / 3; border-radius: 0; border: none; border-bottom: 1px solid var(--color-stone-200); }
 .card-body { padding: var(--space-4); }
 
-/* Services */
+/* Services — minimal photo-grid format: photo placeholder + centered caption, no icon/description. */
 .services { padding: var(--space-8) 0; background: var(--color-cream); }
-.services-grid { grid-template-columns: repeat(3, 1fr); }
-.card-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 44px; height: 44px; border-radius: var(--radius-sm);
-  background: var(--color-plum-tint); color: var(--color-plum);
-  margin-bottom: var(--space-3);
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+.service-photo { margin: 0; text-align: center; }
+.service-photo .placeholder-img { aspect-ratio: 4 / 3; min-height: 0; border-radius: var(--radius-lg); }
+.service-photo .service-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
 }
-.card-icon svg { width: 22px; height: 22px; }
-.service-card h3 { margin-bottom: var(--space-2); }
-.service-card p { margin-bottom: 0; font-size: 0.95rem; }
+.service-photo figcaption {
+  margin-top: var(--space-3);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--color-black);
+}
 
-/* Process */
+/* Process — circular photo placeholder above title/description, 3 across on desktop. */
 .process { padding: var(--space-8) 0; background: var(--color-white); }
 .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
-.process-step {
-  text-align: center;
-  padding: var(--space-5) var(--space-4);
-  background: var(--color-cream);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-stone-200);
-  position: relative;
+.process-step { text-align: center; padding: 0 var(--space-3); }
+.process-photo {
+  width: 160px;
+  height: 160px;
+  min-height: 0;
+  margin: 0 auto var(--space-4);
+  border-radius: 50%;
+  padding: 0;
+  overflow: hidden;
 }
-.process-number {
-  font-family: var(--font-serif); font-weight: 700; font-size: 0.95rem;
-  color: var(--color-plum-light);
-  letter-spacing: 0.05em;
-  margin-bottom: var(--space-2);
+.process-photo svg { width: 26px; height: 26px; }
+.process-photo span { font-size: 0.75rem; }
+.process-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
-.process-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 56px; height: 56px; border-radius: 50%;
-  background: var(--color-plum); color: var(--text-inverse);
-  margin-bottom: var(--space-3);
-}
-.process-icon svg { width: 26px; height: 26px; }
+.process-step h3 { margin-bottom: var(--space-2); }
 .process-step p { font-size: 0.92rem; margin-bottom: 0; }
-
-/* Projects */
-.projects { padding: var(--space-8) 0; background: var(--color-cream); }
-.projects-grid { grid-template-columns: repeat(3, 1fr); }
-.project-card { margin: 0; }
-.project-card figcaption { padding: var(--space-3) var(--space-4); display: flex; flex-direction: column; gap: 4px; }
-.project-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-plum); }
-.project-title { font-family: var(--font-serif); font-weight: 600; color: var(--color-black); }
 
 /* Testimonials */
 .testimonials { padding: var(--space-8) 0; background: var(--color-white); }
@@ -1072,11 +1054,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
    RESPONSIVE — TABLET (<=1024px)
 ========================================================= */
 @media (max-width: 1024px) {
-  .services-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
   .quote-form-fields { grid-template-columns: repeat(2, 1fr); }
-  .about-grid, .contact-grid, .faq-layout { grid-template-columns: 1fr; }
+  .contact-grid, .faq-layout { grid-template-columns: 1fr; }
   .faq-head .section-head { text-align: center; max-width: 640px; margin: 0 auto var(--space-6); }
-  .about-media { max-width: 420px; margin: 0 auto; }
 }
 
 /* =========================================================
@@ -1120,8 +1101,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .header-phone span { display: none; }
   .header-phone { padding: 12px; }
 
-  .trust-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
-  .services-grid, .projects-grid, .testimonials-grid, .process-grid { grid-template-columns: 1fr; }
+  .services-grid, .testimonials-grid, .process-grid { grid-template-columns: 1fr; }
   .quote-form-fields { grid-template-columns: 1fr; }
   .hero { min-height: 100vh; }
   .hero-cta-row { flex-direction: column; align-items: stretch; }
