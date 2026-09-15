@@ -258,9 +258,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .logo-name {
   font-family: var(--font-serif); font-weight: 600; font-size: 1.65rem;
   color: var(--text-inverse);
-  transition: color var(--transition-med);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+  transition: color var(--transition-med), text-shadow var(--transition-med);
 }
-.site-header.scrolled .logo-name { color: var(--color-black); }
+.site-header.scrolled .logo-name { color: var(--color-black); text-shadow: none; }
 .logo-sub {
   display: inline-flex;
   align-items: center;
@@ -270,9 +271,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   text-transform: uppercase;
   color: rgba(255,255,255,0.85);
   font-weight: 600;
-  transition: color var(--transition-med);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+  transition: color var(--transition-med), text-shadow var(--transition-med);
 }
-.site-header.scrolled .logo-sub { color: var(--color-plum); }
+.site-header.scrolled .logo-sub { color: var(--color-plum); text-shadow: none; }
 .logo-sub::before, .logo-sub::after {
   content: '';
   width: 14px;
@@ -288,10 +290,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--text-inverse);
-  transition: color var(--transition-fast);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+  transition: color var(--transition-fast), text-shadow var(--transition-med);
   padding: var(--space-2) 0;
 }
-.site-header.scrolled .main-nav a { color: var(--text-body); }
+.site-header.scrolled .main-nav a { color: var(--text-body); text-shadow: none; }
 .main-nav a::after {
   content: '';
   position: absolute;
@@ -305,6 +308,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .main-nav a:hover { color: var(--color-plum-light); }
 .site-header.scrolled .main-nav a:hover { color: var(--color-plum); }
 .main-nav a:hover::after { right: 0; }
+
+/* Active page indicator — same colors as :hover, just persistent rather than
+   hover-triggered. "Services" gets this treatment too (as a class on the link
+   itself, not the <li>) whenever the current page is one of the three service
+   sub-pages, even though it's a dropdown trigger and not a direct link. */
+.main-nav a.active { color: var(--color-plum-light); }
+.site-header.scrolled .main-nav a.active { color: var(--color-plum); }
+.main-nav a.active::after { right: 0; }
 
 .header-actions { display: flex; align-items: center; gap: var(--space-4); }
 .header-phone {
@@ -329,6 +340,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .site-header.scrolled .lang-toggle { border-color: var(--color-stone-200); color: var(--text-body); }
 .lang-toggle span { transition: color var(--transition-fast); color: rgba(255,255,255,0.7); }
 .site-header.scrolled .lang-toggle span { color: var(--text-muted); }
+/* Scoped to .header-actions specifically (not the bare .lang-toggle class,
+   which the footer's language button also uses on its always-white background). */
+.header-actions .lang-toggle span { text-shadow: 0 1px 4px rgba(0,0,0,0.45); transition: color var(--transition-fast), text-shadow var(--transition-med); }
+.site-header.scrolled .header-actions .lang-toggle span { text-shadow: none; }
 .lang-toggle span[data-active="true"] { color: var(--text-inverse); }
 .site-header.scrolled .lang-toggle span[data-active="true"] { color: var(--color-plum); }
 
@@ -340,6 +355,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .nav-toggle svg { width: 24px; height: 24px; color: var(--text-inverse); transition: color var(--transition-med); }
 .site-header.scrolled .nav-toggle svg { color: var(--color-black); }
+
+/* Two-color stripe directly under the nav row — part of .site-header itself
+   (not a separate page element) so it travels with the fixed header on
+   scroll, staying visible right beneath the nav at all times. */
+.header-stripe {
+  display: flex;
+  width: 100%;
+  height: 3px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-med), visibility var(--transition-med);
+}
+.site-header.scrolled .header-stripe { opacity: 1; visibility: visible; }
+.header-stripe-half { flex: 1 1 50%; }
+.header-stripe-purple { background: var(--color-plum-light); }
+.header-stripe-black { background: var(--color-black); }
 
 /* Services dropdown — hoverable on desktop, tap-to-toggle on touch/mobile.
    The panel itself is always solid white, so its links stay dark regardless of
@@ -385,6 +416,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-size: 0.92rem;
   font-weight: 600;
   color: var(--text-body);
+  /* The panel itself is always solid white regardless of header scroll state,
+     so it must never pick up the transparent-header legibility shadow above. */
+  text-shadow: none;
 }
 .dropdown-menu a::after { content: none; }
 .dropdown-menu a:hover,
@@ -1051,10 +1085,75 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .contact-page-details svg { width: 20px; height: 20px; color: var(--color-plum); flex-shrink: 0; }
 
 /* =========================================================
+   BLOG — purple banner + card grid, and the individual post page
+========================================================= */
+.blog-hero {
+  background: var(--color-plum);
+  text-align: center;
+  padding: 108px var(--space-4) var(--space-5);
+}
+.blog-hero h1 { color: var(--text-inverse); margin-bottom: 0; }
+
+.blog-section { padding: var(--space-8) 0; background: var(--color-white); }
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+
+.blog-card { display: flex; flex-direction: column; color: inherit; }
+.blog-card-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-3);
+}
+.blog-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-card-title {
+  font-size: 1.15rem;
+  margin-bottom: var(--space-2);
+  transition: color var(--transition-fast);
+}
+.blog-card:hover .blog-card-title { color: var(--color-plum); }
+.blog-card-excerpt {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+  /* Truncate to 3 lines with an ellipsis rather than letting excerpt length
+     vary card height across the grid. */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-card-placeholder-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-plum);
+  background: var(--color-plum-tint);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: var(--space-2);
+}
+
+.blog-post-section { padding: var(--space-7) 0 var(--space-8); background: var(--color-white); }
+.blog-post-body { max-width: 720px; margin: 0 auto; }
+.blog-post-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-5);
+}
+.blog-post-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-post-back { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-plum); font-weight: 600; margin-bottom: var(--space-5); }
+.blog-post-back svg { width: 18px; height: 18px; }
+
+/* =========================================================
    RESPONSIVE — TABLET (<=1024px)
 ========================================================= */
 @media (max-width: 1024px) {
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid, .blog-grid { grid-template-columns: repeat(2, 1fr); }
   .quote-form-fields { grid-template-columns: repeat(2, 1fr); }
   .contact-grid, .faq-layout { grid-template-columns: 1fr; }
   .faq-head .section-head { text-align: center; max-width: 640px; margin: 0 auto var(--space-6); }
@@ -1101,7 +1200,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .header-phone span { display: none; }
   .header-phone { padding: 12px; }
 
-  .services-grid, .testimonials-grid, .process-grid { grid-template-columns: 1fr; }
+  .services-grid, .testimonials-grid, .process-grid, .blog-grid { grid-template-columns: 1fr; }
   .quote-form-fields { grid-template-columns: 1fr; }
   .hero { min-height: 100vh; }
   .hero-cta-row { flex-direction: column; align-items: stretch; }

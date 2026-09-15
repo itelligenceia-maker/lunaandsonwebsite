@@ -28,7 +28,8 @@ NAV_ITEMS = [
 ]
 
 
-def render_head(title, description):
+def render_head(title, description, depth="../../"):
+    """depth: relative path prefix back to the site root — see render_header()."""
     return f"""<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
@@ -42,22 +43,34 @@ def render_head(title, description):
 <!-- AOS (Animate On Scroll) - restrained fade-up reveals only -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
-<link rel="stylesheet" href="../../style.css">"""
+<link rel="stylesheet" href="{depth}style.css">"""
 
 
-def render_header(active_slug):
+def render_header(active, depth="../../"):
+    """active: 'home' | 'blog' | 'contact' | 'services:<slug>' | None.
+    depth: relative path prefix back to the site root — '../../' for pages one
+    directory deep in a category (services/<slug>/, blog/<slug>/), '../' for
+    pages one level deep overall (contact/, blog/)."""
+    is_service_page = bool(active) and active.startswith("services:")
+    active_service_slug = active.split(":", 1)[1] if is_service_page else None
+
+    def nav_class(key):
+        return ' class="active" aria-current="page"' if active == key else ""
+
+    services_class = ' class="active" aria-current="page"' if is_service_page else ""
+
     dropdown_items = []
     for slug, label_en, label_es in NAV_ITEMS:
-        active_attrs = ' class="active" aria-current="page"' if slug == active_slug else ""
+        active_attrs = ' class="active" aria-current="page"' if slug == active_service_slug else ""
         dropdown_items.append(
-            f'            <li><a href="../../services/{slug}/"{active_attrs} data-en="{label_en}" data-es="{label_es}">{label_en}</a></li>'
+            f'            <li><a href="{depth}services/{slug}/"{active_attrs} data-en="{label_en}" data-es="{label_es}">{label_en}</a></li>'
         )
     dropdown_html = "\n".join(dropdown_items)
 
     return f"""<header class="site-header" id="top">
   <div class="container header-inner">
-    <a href="../../index.html" class="logo" aria-label="Luna &amp; Sons Landscaping home">
-      <img class="logo-mark" src="../../images/logo-moon.png" alt="Luna &amp; Sons moon logo">
+    <a href="{depth}index.html" class="logo" aria-label="Luna &amp; Sons Landscaping home">
+      <img class="logo-mark" src="{depth}images/logo-moon.png" alt="Luna &amp; Sons moon logo">
       <span class="logo-text">
         <span class="logo-name">Luna &amp; Sons</span>
         <span class="logo-sub" data-en="Landscaping" data-es="Paisajismo">Landscaping</span>
@@ -66,10 +79,10 @@ def render_header(active_slug):
 
     <nav class="main-nav" id="main-nav" aria-label="Primary">
       <ul>
-        <li><a href="../../index.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="{depth}index.html"{nav_class("home")} data-en="Home" data-es="Inicio">Home</a></li>
         <li class="has-dropdown">
           <div class="nav-link-wrap">
-            <a href="../../index.html#services" data-en="Services" data-es="Servicios">Services</a>
+            <a href="{depth}index.html#services"{services_class} data-en="Services" data-es="Servicios">Services</a>
             <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="services-dropdown" aria-label="Toggle services menu">
               <i data-lucide="chevron-down" aria-hidden="true"></i>
             </button>
@@ -78,8 +91,8 @@ def render_header(active_slug):
 {dropdown_html}
           </ul>
         </li>
-        <li><a href="../../index.html#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
-        <li><a href="../../contact/index.html" data-en="Contact" data-es="Contacto">Contact</a></li>
+        <li><a href="{depth}blog/index.html"{nav_class("blog")} data-en="Blog" data-es="Blog">Blog</a></li>
+        <li><a href="{depth}contact/index.html"{nav_class("contact")} data-en="Contact" data-es="Contacto">Contact</a></li>
       </ul>
     </nav>
 
@@ -95,6 +108,10 @@ def render_header(active_slug):
         <i data-lucide="menu" aria-hidden="true"></i>
       </button>
     </div>
+  </div>
+  <div class="header-stripe" aria-hidden="true">
+    <span class="header-stripe-half header-stripe-purple"></span>
+    <span class="header-stripe-half header-stripe-black"></span>
   </div>
 </header>"""
 
@@ -229,7 +246,7 @@ SITE_LICENSE = "45178"
 SITE_REVIEW_HREF = "https://search.google.com/local/writereview?placeid=REPLACE_WITH_GOOGLE_PLACE_ID"
 
 
-def render_footer():
+def render_footer(depth="../../"):
     """The single consolidated footer: brand block (logo, wordmark, tagline,
     contact, review button, social) + Quick Links / Services / Contact columns
     + copyright bar. Used unconditionally by every service page via render_page,
@@ -237,7 +254,7 @@ def render_footer():
     return f"""<footer class="service-footer">
   <div class="container">
     <div class="service-footer-brand" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
-      <img class="service-footer-logo" src="../../images/logo/luna-sons-moon.jpg" width="900" height="900" alt="Luna & Sons Landscaping moon logo" loading="lazy">
+      <img class="service-footer-logo" src="{depth}images/logo/luna-sons-moon.jpg" width="900" height="900" alt="Luna & Sons Landscaping moon logo" loading="lazy">
       <div class="service-footer-wordmark">
         <span class="service-footer-name">Luna &amp; Sons</span>
         <span class="service-footer-sub"><span class="closing-line"></span><span data-en="Landscaping" data-es="Paisajismo">Landscaping</span><span class="closing-line"></span></span>
@@ -261,20 +278,20 @@ def render_footer():
       <div class="service-footer-col">
         <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
         <ul>
-          <li><a href="../../index.html" data-en="Home" data-es="Inicio">Home</a></li>
-          <li><a href="../../index.html#about" data-en="About" data-es="Sobre Nosotros">About</a></li>
-          <li><a href="../../index.html#services" data-en="Services" data-es="Servicios">Services</a></li>
-          <li><a href="../../index.html#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
-          <li><a href="../../contact/index.html" data-en="Contact" data-es="Contacto">Contact</a></li>
+          <li><a href="{depth}index.html" data-en="Home" data-es="Inicio">Home</a></li>
+          <li><a href="{depth}index.html#about" data-en="About" data-es="Sobre Nosotros">About</a></li>
+          <li><a href="{depth}index.html#services" data-en="Services" data-es="Servicios">Services</a></li>
+          <li><a href="{depth}blog/index.html" data-en="Blog" data-es="Blog">Blog</a></li>
+          <li><a href="{depth}contact/index.html" data-en="Contact" data-es="Contacto">Contact</a></li>
         </ul>
       </div>
 
       <div class="service-footer-col">
         <h4 data-en="Services" data-es="Servicios">Services</h4>
         <ul>
-          <li><a href="../../index.html#services" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
-          <li><a href="../../index.html#services" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
-          <li><a href="../../index.html#services" data-en="Landscape Management" data-es="Manejo de Paisaje">Landscape Management</a></li>
+          <li><a href="{depth}index.html#services" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
+          <li><a href="{depth}index.html#services" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
+          <li><a href="{depth}index.html#services" data-en="Landscape Management" data-es="Manejo de Paisaje">Landscape Management</a></li>
         </ul>
       </div>
 
@@ -311,7 +328,7 @@ def render_page(data):
 <!-- =========================================================
      HEADER / NAV
 ========================================================= -->
-{render_header(data["slug"])}
+{render_header(f'services:{data["slug"]}')}
 
 <main>
 
