@@ -241,7 +241,7 @@ def render_cta(heading, button_text):
 SITE_TAGLINE = "Landscapes built to last."
 SITE_PHONE_DISPLAY = "(805) 268-2808"
 SITE_PHONE_HREF = "tel:+18052682808"
-SITE_LICENSE = "45178"
+SITE_LICENSE = "1160930"
 # TODO: swap in the real Google Business review link once available
 SITE_REVIEW_HREF = "https://search.google.com/local/writereview?placeid=REPLACE_WITH_GOOGLE_PLACE_ID"
 
