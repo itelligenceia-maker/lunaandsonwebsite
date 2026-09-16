@@ -300,7 +300,7 @@ def render_footer(depth="../../"):
         <ul class="service-footer-contact-list">
           <li><i data-lucide="map-pin" aria-hidden="true"></i><span data-en="Santa Maria, CA" data-es="Santa Maria, CA">Santa Maria, CA</span></li>
           <li><i data-lucide="phone" aria-hidden="true"></i><a href="{SITE_PHONE_HREF}">{SITE_PHONE_DISPLAY}</a></li>
-          <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:info@lunaandsonslandscaping.com">info@lunaandsonslandscaping.com</a></li>
+          <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:lunaandsonslandscape@gmail.com">lunaandsonslandscape@gmail.com</a></li>
         </ul>
       </div>
     </div>
