@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
   initForms();
   initHeroSlideshow();
-  document.getElementById('year').textContent = new Date().getFullYear();
+  const yr = document.getElementById('year');
+  if (yr) yr.textContent = new Date().getFullYear();
+  initGallery();
 });
 
 // ---------------------------------------------------------
@@ -139,6 +141,7 @@ function initLangToggle() {
     });
     document.querySelectorAll('.lang-en-flag').forEach((el) => el.setAttribute('data-active', String(lang === 'en')));
     document.querySelectorAll('.lang-es-flag').forEach((el) => el.setAttribute('data-active', String(lang === 'es')));
+    document.querySelectorAll('.form-lang').forEach((el) => { el.value = lang; });
     localStorage.setItem(STORAGE_KEY, lang);
   }
 
@@ -168,79 +171,122 @@ function initFAQ() {
 }
 
 // ---------------------------------------------------------
-// Simple math anti-spam check — generates "X + Y =" per form and validates
-// the answer on submit, without any third-party CAPTCHA service.
+// Consultation form
+// - Spam trap: a hidden field real visitors never see or fill. If it has a value,
+//   the submission is silently dropped (no error shown to a bot).
+// - FORM_ENDPOINT lives on the form as data-endpoint (see tools/shell.py). While it is
+//   empty the form works in PREVIEW mode: it validates, but sends nothing and says so.
 // ---------------------------------------------------------
-function setUpCaptcha(form) {
-  const field = form.querySelector('.captcha-field');
-  const questionEl = form.querySelector('.captcha-question');
-  const input = form.querySelector('.captcha-answer');
-  const errorEl = form.querySelector('.captcha-error');
-  if (!field || !questionEl || !input) return null;
+const FORM_TEXT = {
+  en: {
+    sending: 'Sending…',
+    ok: "Thank you — we've received your request and will be in touch soon.",
+    fail: 'Something went wrong sending your request. Please call (805) 268-2808 and we will help right away.',
+    preview: "Preview mode: the form is filled in correctly, but it isn't connected yet — nothing was sent.",
+  },
+  es: {
+    sending: 'Enviando…',
+    ok: 'Gracias — recibimos su solicitud y nos pondremos en contacto pronto.',
+    fail: 'Algo salió mal al enviar su solicitud. Llámenos al (805) 268-2808 y con gusto le ayudamos.',
+    preview: 'Modo de vista previa: el formulario está completo, pero aún no está conectado — no se envió nada.',
+  },
+};
 
-  let a, b;
-  function newChallenge() {
-    a = Math.floor(Math.random() * 20) + 1;
-    b = Math.floor(Math.random() * 20) + 1;
-    questionEl.textContent = `${a} + ${b} =`;
-    input.value = '';
-    field.classList.remove('has-error');
-    errorEl.hidden = true;
-  }
-
-  newChallenge();
-
-  return {
-    validate() {
-      const answer = parseInt(input.value, 10);
-      const correct = !Number.isNaN(answer) && answer === a + b;
-      field.classList.toggle('has-error', !correct);
-      errorEl.hidden = correct;
-      input.setAttribute('aria-invalid', String(!correct));
-      return correct;
-    },
-    reset: newChallenge,
-  };
-}
-
-// ---------------------------------------------------------
-// Honeypot anti-spam field — a real user never sees or fills this input
-// (off-screen via CSS, not display:none, so form-filling bots still find it).
-// Any value in it means the submission is spam; reject it silently, with no
-// visible error, since a real visitor could never trigger this case.
-// ---------------------------------------------------------
-function isHoneypotTripped(form) {
-  const honeypot = form.querySelector('.honeypot-answer');
-  return !!(honeypot && honeypot.value.trim() !== '');
-}
-
-// ---------------------------------------------------------
-// Form submission (front-end only — no backend wired up yet)
-// ---------------------------------------------------------
 function initForms() {
-  const forms = [document.getElementById('quick-quote-form'), document.getElementById('contact-form'), document.getElementById('page-contact-form')];
-  forms.forEach((form) => {
-    if (!form) return;
-    const captcha = setUpCaptcha(form);
+  document.querySelectorAll('.consult-form').forEach((form) => {
+    const status = form.querySelector('.form-status');
+    const button = form.querySelector('.consult-submit');
+    const langField = form.querySelector('.form-lang');
+    if (langField) langField.value = document.documentElement.lang === 'es' ? 'es' : 'en';
 
-    form.addEventListener('submit', (e) => {
+    function show(text, kind) {
+      status.hidden = false;
+      status.textContent = text;
+      status.dataset.kind = kind;
+    }
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const lang = document.documentElement.lang === 'es' ? 'es' : 'en';
+      const t = FORM_TEXT[lang];
 
-      if (isHoneypotTripped(form)) {
-        return; // Silent reject — spam, not a real user, so no error shown.
-      }
-
-      if (captcha && !captcha.validate()) {
-        form.querySelector('.captcha-answer').focus();
+      const trap = form.querySelector('.trap-answer');
+      if (trap && trap.value.trim() !== '') {
+        // Spam: pretend it worked, send nothing.
+        show(t.ok, 'ok');
+        form.reset();
         return;
       }
 
-      const lang = document.documentElement.lang;
-      alert(lang === 'es'
-        ? 'Gracias. Nos pondremos en contacto pronto. (Este formulario aún no está conectado a un backend.)'
-        : "Thanks — we'll be in touch soon. (This form isn't wired up to a backend yet.)");
-      form.reset();
-      if (captcha) captcha.reset();
+      const endpoint = (form.dataset.endpoint || '').trim();
+      if (!endpoint) {
+        show(t.preview, 'preview');
+        return;
+      }
+
+      button.disabled = true;
+      show(t.sending, 'sending');
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        show(t.ok, 'ok');
+        form.reset();
+        if (langField) langField.value = lang;
+      } catch (err) {
+        show(t.fail, 'error');
+      } finally {
+        button.disabled = false;
+      }
     });
+  });
+}
+
+// ---------------------------------------------------------
+// Our Work gallery: category filter + lightbox (native <dialog>)
+// ---------------------------------------------------------
+function initGallery() {
+  const grid = document.querySelector('.gallery-grid');
+  if (!grid) return;
+  const items = Array.from(grid.querySelectorAll('.gallery-item'));
+  const chips = document.querySelectorAll('.filter-chip');
+  const dialog = document.getElementById('lightbox');
+  const lbImg = dialog ? dialog.querySelector('.lb-img') : null;
+  const lbCount = dialog ? dialog.querySelector('.lb-count') : null;
+  let visible = items.slice();
+  let index = 0;
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const cat = chip.dataset.filter;
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+      items.forEach((it) => { it.hidden = !(cat === 'all' || it.dataset.cat === cat); });
+      visible = items.filter((it) => !it.hidden);
+    });
+  });
+
+  function openAt(i) {
+    if (!dialog || !visible.length) return;
+    index = (i + visible.length) % visible.length;
+    const thumb = visible[index].querySelector('img');
+    const lang = document.documentElement.lang === 'es' ? 'es' : 'en';
+    lbImg.src = visible[index].dataset.full;
+    lbImg.alt = lang === 'es' ? thumb.dataset.altEs : thumb.dataset.altEn;
+    lbCount.textContent = (index + 1) + ' / ' + visible.length;
+    if (!dialog.open) dialog.showModal();
+  }
+
+  items.forEach((it) => it.addEventListener('click', () => openAt(visible.indexOf(it))));
+  if (!dialog) return;
+  dialog.querySelector('.lb-prev').addEventListener('click', () => openAt(index - 1));
+  dialog.querySelector('.lb-next').addEventListener('click', () => openAt(index + 1));
+  dialog.querySelector('.lb-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+  dialog.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') openAt(index - 1);
+    if (e.key === 'ArrowRight') openAt(index + 1);
   });
 }

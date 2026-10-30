@@ -3,28 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | Luna &amp; Sons Landscaping</title>
-<meta name="description" content="Request a free landscaping estimate from Luna &amp; Sons Landscaping in Santa Maria, CA. Tell us about your project and a team member will reach out within one business day.">
-
-<!-- Fonts: Fraunces (confident serif for headlines) + Inter (clean sans for body/nav) -->
+<title>Schedule a Consultation | Luna &amp; Sons Landscaping</title>
+<meta name="description" content="Schedule a consultation with Luna &amp; Sons Landscaping in Santa Maria, CA. Tell us about your property, priorities and the outdoor space you envision.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Schedule a Consultation | Luna &amp; Sons Landscaping">
+<meta property="og:description" content="Schedule a consultation with Luna &amp; Sons Landscaping in Santa Maria, CA. Tell us about your property, priorities and the outdoor space you envision.">
+<meta property="og:image" content="https://lunaandsonslandscaping.com/images/luna-sons-flagstone-patio-01.jpg">
+<meta name="theme-color" content="#4B1D63">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- AOS (Animate On Scroll) - restrained fade-up reveals only -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-
-<!-- =========================================================
-     HEADER / NAV
-========================================================= -->
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a href="../index.html" class="logo" aria-label="Luna &amp; Sons Landscaping home">
-      <img class="logo-mark" src="../images/logo-moon.png" alt="Luna &amp; Sons moon logo">
+      <img class="logo-mark" src="../images/logo-moon.png" width="54" height="54" alt="Luna &amp; Sons moon logo">
       <span class="logo-text">
         <span class="logo-name">Luna &amp; Sons</span>
         <span class="logo-sub" data-en="Landscaping" data-es="Paisajismo">Landscaping</span>
@@ -42,20 +38,26 @@
             </button>
           </div>
           <ul class="dropdown-menu" id="services-dropdown">
+            <li><a href="../services/outdoor-living-patios/index.html" data-en="Outdoor Living &amp; Patios" data-es="Vida al Aire Libre y Patios">Outdoor Living &amp; Patios</a></li>
             <li><a href="../services/landscape-design/index.html" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
             <li><a href="../services/landscape-construction/index.html" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
-            <li><a href="../services/landscape-management/index.html" data-en="Landscape Management" data-es="Manejo de Paisaje">Landscape Management</a></li>
+            <li><a href="../services/pavers-retaining-walls/index.html" data-en="Pavers &amp; Retaining Walls" data-es="Adoquines y Muros de Contención">Pavers &amp; Retaining Walls</a></li>
+            <li><a href="../services/planting-irrigation/index.html" data-en="Planting &amp; Irrigation" data-es="Plantación y Riego">Planting &amp; Irrigation</a></li>
+            <li><a href="../services/landscape-maintenance/index.html" data-en="Landscape Maintenance" data-es="Mantenimiento de Paisaje">Landscape Maintenance</a></li>
           </ul>
         </li>
-        <li><a href="../blog/index.html" data-en="Blog" data-es="Blog">Blog</a></li>
-        <li><a href="index.html" class="active" aria-current="page" data-en="Contact" data-es="Contacto">Contact</a></li>
+        <li><a href="../work/index.html" data-en="Our Work" data-es="Nuestro Trabajo">Our Work</a></li>
+        <li><a href="../index.html#about" data-en="About" data-es="Nosotros">About</a></li>
+        
+        <li><a href="../contact/index.html" class="active" aria-current="page" data-en="Contact" data-es="Contacto">Contact</a></li>
+        <li class="nav-cta-item"><a class="btn btn-primary nav-cta" href="../contact/index.html"><span data-en="Schedule a Consultation" data-es="Programar una Consulta">Schedule a Consultation</span></a></li>
       </ul>
     </nav>
 
     <div class="header-actions">
-      <a class="header-phone" href="tel:+18052682808">
+      <a class="header-phone" href="tel:+18052682808" aria-label="Call (805) 268-2808">
         <i data-lucide="phone" aria-hidden="true"></i>
-        <span>(805) 268-2808</span>
+        <span class="header-phone-number">(805) 268-2808</span>
       </a>
       <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch language / Cambiar idioma">
         <span class="lang-en-flag" data-active="true">EN</span>/<span class="lang-es-flag">ES</span>
@@ -70,181 +72,162 @@
     <span class="header-stripe-half header-stripe-black"></span>
   </div>
 </header>
-
 <main>
-
-  <!-- =========================================================
-       COMPACT PAGE BANNER
-       Same small hero band used on the service pages — gives the fixed,
-       transparent header a backdrop to sit on; without it, white nav text
-       would land directly on this page's plain white background at the top.
-  ========================================================= -->
-  <div class="service-accent-bar"></div>
-  <section class="service-hero">
-    <div class="service-hero-media">
-      <img src="../images/hero-slide-1.jpg" alt="Green lawn, purple flowers, and home exterior" style="object-position: center 55%;">
-    </div>
-    <div class="service-hero-scrim"></div>
-    <div class="container service-hero-content" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-out">
-      <h1 data-en="Contact" data-es="Contacto">Contact</h1>
+  <section class="page-banner" style="background-image:url('../images/hero-slide-1.jpg')">
+    <div class="page-banner-scrim"></div>
+    <div class="container page-banner-inner">
+      <p class="eyebrow eyebrow-light" data-en="Contact" data-es="Contacto">Contact</p>
+      <h1 data-en="Your Outdoor Living Starts Here." data-es="Su Vida al Aire Libre Comienza Aquí.">Your Outdoor Living Starts Here.</h1>
+      <p data-en="Tell us about your property, priorities and the space you envision." data-es="Cuéntenos sobre su propiedad, sus prioridades y el espacio que imagina.">Tell us about your property, priorities and the space you envision.</p>
     </div>
   </section>
 
-  <!-- =========================================================
-       TWO-COLUMN CONTACT SECTION
-  ========================================================= -->
-  <section class="contact-page-section">
-    <div class="container contact-page-grid">
+  <section class="consult consult-page" id="consultation">
+    <div class="container consult-grid">
+      <div class="consult-card" data-aos="fade-up">
+        <form class="consult-form" id="p-form" data-endpoint="">
+          <div class="hp-wrap" aria-hidden="true">
+            <input type="text" name="website_url" id="p-hp" class="trap-answer" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="page_language" class="form-lang" value="en">
+          <input type="hidden" name="_subject" value="New consultation request — Luna &amp; Sons website">
 
-      <div class="contact-page-form-col" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
-        <h2 class="contact-page-heading" data-en="Ready to Plan Your Space?" data-es="¿Listo para Planificar su Espacio?">Ready to Plan Your Space?</h2>
-        <p class="contact-page-intro" data-en="Fill out the form below and a member of our team will reach out within one business day." data-es="Complete el formulario a continuación y un miembro de nuestro equipo se pondrá en contacto dentro de un día hábil.">Fill out the form below and a member of our team will reach out within one business day.</p>
-
-        <form class="contact-page-form" id="page-contact-form">
-          <!-- Honeypot: invisible to real users, bots that auto-fill every field will trip it. -->
-          <div class="honeypot-field" aria-hidden="true">
-            <label for="pc-company">Company</label>
-            <input type="text" id="pc-company" name="company" class="honeypot-answer" tabindex="-1" autocomplete="off">
-          </div>
-
-          <div class="field field--floating">
-            <input type="text" id="pc-name" name="name" autocomplete="name" placeholder=" " required>
-            <label for="pc-name" data-en="Name" data-es="Nombre">Name</label>
-          </div>
-          <div class="field field--floating">
-            <input type="email" id="pc-email" name="email" autocomplete="email" placeholder=" " required>
-            <label for="pc-email" data-en="Email Address" data-es="Correo Electrónico">Email Address</label>
-          </div>
-          <div class="field field--floating">
-            <input type="tel" id="pc-phone" name="phone" autocomplete="tel" placeholder=" ">
-            <label for="pc-phone" data-en="Phone Number" data-es="Número de Teléfono">Phone Number</label>
-          </div>
-          <div class="field field--floating">
-            <input type="text" id="pc-address" name="address" autocomplete="street-address" placeholder=" ">
-            <label for="pc-address" data-en="Property Address" data-es="Dirección de la Propiedad">Property Address</label>
+          <div class="field">
+            <label for="p-name" data-en="Full Name" data-es="Nombre Completo">Full Name</label>
+            <input type="text" id="p-name" name="name" autocomplete="name" required>
           </div>
           <div class="field">
-            <label for="pc-service" data-en="Services" data-es="Servicios">Services</label>
-            <select id="pc-service" name="service" required>
-              <option value="" selected disabled data-en="Select a service" data-es="Seleccione un servicio">Select a service</option>
-              <option value="design" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</option>
-              <option value="construction" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</option>
-              <option value="management" data-en="Landscape Management" data-es="Manejo de Paisaje">Landscape Management</option>
+            <label for="p-phone" data-en="Phone" data-es="Teléfono">Phone</label>
+            <input type="tel" id="p-phone" name="phone" autocomplete="tel" inputmode="tel" required>
+          </div>
+          <div class="field">
+            <label for="p-email" data-en="Email" data-es="Correo Electrónico">Email</label>
+            <input type="email" id="p-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="p-address" data-en="Project Address" data-es="Dirección del Proyecto">Project Address</label>
+            <input type="text" id="p-address" name="address" autocomplete="street-address" required>
+          </div>
+          <div class="field">
+            <label for="p-type" data-en="Project Type" data-es="Tipo de Proyecto">Project Type</label>
+            <select id="p-type" name="project_type" required>
+              <option value="" data-en="Select a service" data-es="Seleccione un servicio">Select a service</option>
+              <option value="outdoor-living-patio" data-en="Outdoor Living &amp; Patio" data-es="Vida al Aire Libre y Patio">Outdoor Living &amp; Patio</option>
+              <option value="pavers-retaining-walls" data-en="Pavers &amp; Retaining Walls" data-es="Adoquines y Muros de Contención">Pavers &amp; Retaining Walls</option>
+              <option value="complete-transformation" data-en="Complete Landscape Transformation" data-es="Transformación Completa del Paisaje">Complete Landscape Transformation</option>
+              <option value="landscape-design" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</option>
+              <option value="planting-irrigation" data-en="Planting &amp; Irrigation" data-es="Plantación y Riego">Planting &amp; Irrigation</option>
+              <option value="landscape-maintenance" data-en="Landscape Maintenance" data-es="Mantenimiento de Paisaje">Landscape Maintenance</option>
+              <option value="other" data-en="Other / Not sure yet" data-es="Otro / Aún no lo sé">Other / Not sure yet</option>
             </select>
           </div>
           <div class="field">
-            <label for="pc-budget" data-en="Budget" data-es="Presupuesto">Budget</label>
-            <select id="pc-budget" name="budget">
-              <option value="" selected disabled data-en="Select a range" data-es="Seleccione un rango">Select a range</option>
-              <option value="under-5k" data-en="Under $5k" data-es="Menos de $5,000">Under $5k</option>
-              <option value="5k-15k" data-en="$5k - $15k" data-es="$5,000 - $15,000">$5k - $15k</option>
-              <option value="15k-30k" data-en="$15k - $30k" data-es="$15,000 - $30,000">$15k - $30k</option>
-              <option value="30k-plus" data-en="$30k+" data-es="Más de $30,000">$30k+</option>
+            <label for="p-invest" data-en="Anticipated Investment" data-es="Inversión Estimada">Anticipated Investment</label>
+            <select id="p-invest" name="anticipated_investment">
+              <option value="" data-en="Select a range" data-es="Seleccione un rango">Select a range</option>
+              <option value="under-10k" data-en="Under $10,000" data-es="Menos de $10,000">Under $10,000</option>
+              <option value="10k-25k" data-en="$10,000 – $25,000" data-es="$10,000 – $25,000">$10,000 – $25,000</option>
+              <option value="25k-50k" data-en="$25,000 – $50,000" data-es="$25,000 – $50,000">$25,000 – $50,000</option>
+              <option value="50k-100k" data-en="$50,000 – $100,000" data-es="$50,000 – $100,000">$50,000 – $100,000</option>
+              <option value="100k-plus" data-en="$100,000+" data-es="Más de $100,000">$100,000+</option>
+              <option value="not-sure" data-en="Not sure yet" data-es="Aún no lo sé">Not sure yet</option>
             </select>
           </div>
-          <div class="field field--floating">
-            <textarea id="pc-message" name="message" rows="6" placeholder=" "></textarea>
-            <label for="pc-message" data-en="Message" data-es="Mensaje">Message</label>
+          <div class="field field--wide">
+            <label for="p-timeline" data-en="Preferred Timeline" data-es="Plazo Preferido">Preferred Timeline</label>
+            <select id="p-timeline" name="preferred_timeline">
+              <option value="" data-en="Select a timeframe" data-es="Seleccione un plazo">Select a timeframe</option>
+              <option value="asap" data-en="As soon as possible" data-es="Lo antes posible">As soon as possible</option>
+              <option value="1-3-months" data-en="Within 1–3 months" data-es="En 1–3 meses">Within 1–3 months</option>
+              <option value="3-6-months" data-en="In 3–6 months" data-es="En 3–6 meses">In 3–6 months</option>
+              <option value="6-plus-months" data-en="6+ months / planning ahead" data-es="Más de 6 meses / planificando">6+ months / planning ahead</option>
+              <option value="exploring" data-en="Just exploring ideas" data-es="Solo explorando ideas">Just exploring ideas</option>
+            </select>
+          </div>
+          <div class="field field--wide">
+            <label for="p-details" data-en="Tell Us About Your Project" data-es="Cuéntenos Sobre Su Proyecto">Tell Us About Your Project</label>
+            <textarea id="p-details" name="project_details" rows="4"></textarea>
           </div>
 
-          <div class="field captcha-field">
-            <label for="pc-captcha" data-en="Quick check" data-es="Verificación rápida">Quick check</label>
-            <div class="captcha-row">
-              <span class="captcha-question" aria-hidden="true"></span>
-              <input type="text" inputmode="numeric" autocomplete="off" id="pc-captcha" class="captcha-answer" aria-label="Answer the math question to verify you're human">
-            </div>
-            <p class="field-error captcha-error" data-en="That's not quite right — please try again." data-es="Eso no es correcto — intente de nuevo." hidden aria-live="polite">That's not quite right — please try again.</p>
-          </div>
-
-          <button type="submit" class="btn btn-primary contact-page-submit">
-            <span data-en="Request A Quote" data-es="Solicitar Cotización">Request A Quote</span>
+          <button type="submit" class="btn btn-primary btn-block consult-submit">
+            <span data-en="Request a Consultation" data-es="Solicitar una Consulta">Request a Consultation</span>
             <i data-lucide="arrow-right" aria-hidden="true"></i>
           </button>
+          <p class="form-status" role="status" aria-live="polite" hidden></p>
+          <p class="form-note" data-en="Project pricing is based on scope, materials and site conditions." data-es="El precio de cada proyecto depende del alcance, los materiales y las condiciones del sitio.">Project pricing is based on scope, materials and site conditions.</p>
         </form>
       </div>
-
-      <div class="contact-page-info-col" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out" data-aos-delay="100">
-        <img class="contact-page-photo" src="../images/luna-sons-flagstone-patio-01.jpg" width="1600" height="1292" alt="Flagstone patio with a natural stone accent feature in a completed Luna & Sons backyard" data-alt-en="Flagstone patio with a natural stone accent feature in a completed Luna & Sons backyard" data-alt-es="Patio de piedra laja con un acento de piedra natural en un patio trasero terminado por Luna & Sons" loading="lazy">
-        <ul class="contact-page-details">
-          <li><i data-lucide="map-pin" aria-hidden="true"></i><span>Santa Maria, CA</span></li>
+      <aside class="consult-side" data-aos="fade-up" data-aos-delay="100">
+        <img class="consult-photo" src="../images/luna-sons-flagstone-patio-01.jpg" width="1600" height="1292" alt="Flagstone patio with a natural stone accent feature in a completed Luna &amp; Sons backyard" data-alt-en="Flagstone patio with a natural stone accent feature in a completed Luna &amp; Sons backyard" data-alt-es="Patio de piedra laja con un elemento decorativo de piedra natural en un patio terminado por Luna &amp; Sons" loading="lazy">
+        <ul class="consult-contact">
           <li><i data-lucide="phone" aria-hidden="true"></i><a href="tel:+18052682808">(805) 268-2808</a></li>
           <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:lunaandsonslandscape@gmail.com">lunaandsonslandscape@gmail.com</a></li>
+          <li><i data-lucide="map-pin" aria-hidden="true"></i><span data-en="Santa Maria, CA — serving a 50-mile radius" data-es="Santa Maria, CA — atendemos en un radio de 50 millas">Santa Maria, CA — serving a 50-mile radius</span></li>
+          <li><i data-lucide="shield-check" aria-hidden="true"></i><span data-en="Licensed &amp; Insured · CA LIC #1160930" data-es="Con Licencia y Seguro · Lic. CA #1160930">Licensed &amp; Insured · CA LIC #1160930</span></li>
         </ul>
-      </div>
-
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps?q=Santa+Maria,+CA&amp;output=embed" width="100%" height="240" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Santa Maria, CA service area"></iframe>
+        </div>
+      </aside>
     </div>
   </section>
-
 </main>
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-<footer class="service-footer">
-  <div class="container">
-    <div class="service-footer-brand" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
-      <img class="service-footer-logo" src="../images/logo/luna-sons-moon.jpg" width="900" height="900" alt="Luna & Sons Landscaping moon logo" loading="lazy">
-      <div class="service-footer-wordmark">
-        <span class="service-footer-name">Luna &amp; Sons</span>
-        <span class="service-footer-sub"><span class="closing-line"></span><span data-en="Landscaping" data-es="Paisajismo">Landscaping</span><span class="closing-line"></span></span>
-      </div>
-      <p class="service-footer-tagline" data-en="Landscapes built to last." data-es="Paisajes construidos para durar.">Landscapes built to last.</p>
-      <p class="service-footer-contact-line">
-        <a href="tel:+18052682808">(805) 268-2808</a> &middot; License #1160930
-      </p>
-      <a class="btn btn-primary service-footer-review" href="https://search.google.com/local/writereview?placeid=REPLACE_WITH_GOOGLE_PLACE_ID" target="_blank" rel="noopener">
-        <span data-en="Leave a Review" data-es="Dejar una Reseña">Leave a Review</span>
-        <i data-lucide="star" aria-hidden="true"></i>
+<footer class="sf">
+  <div class="container sf-grid">
+    <div class="sf-brand">
+      <a href="../index.html" class="sf-logo" aria-label="Luna &amp; Sons Landscaping home">
+        <img src="../images/logo-moon.png" width="64" height="64" alt="Luna &amp; Sons moon logo" loading="lazy">
+        <span class="sf-wordmark"><span class="sf-name">Luna &amp; Sons</span><span class="sf-sub" data-en="Landscaping" data-es="Paisajismo">Landscaping</span></span>
       </a>
-      <div class="service-footer-social">
-        <a href="#" aria-label="Luna & Sons on Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
-        <a href="#" aria-label="Luna & Sons on Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
-        <a href="#" aria-label="Luna & Sons on YouTube"><i data-lucide="youtube" aria-hidden="true"></i></a>
+      <p class="sf-tagline" data-en="Family-owned landscape design and construction serving Santa Maria and California&#x27;s Central Coast." data-es="Diseño y construcción de paisajes de una empresa familiar, al servicio de Santa Maria y la Costa Central de California.">Family-owned landscape design and construction serving Santa Maria and California's Central Coast.</p>
+      <div class="sf-social">
+        <a href="https://www.facebook.com/LunaAndSonsLandscape" target="_blank" rel="noopener" aria-label="Luna &amp; Sons on Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/lunaandsonslandscaping" target="_blank" rel="noopener" aria-label="Luna &amp; Sons on Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
       </div>
     </div>
 
-    <div class="service-footer-links">
-      <div class="service-footer-col">
-        <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
-        <ul>
-          <li><a href="../index.html" data-en="Home" data-es="Inicio">Home</a></li>
-          <li><a href="../index.html#about" data-en="About" data-es="Sobre Nosotros">About</a></li>
-          <li><a href="../index.html#services" data-en="Services" data-es="Servicios">Services</a></li>
-          <li><a href="../blog/index.html" data-en="Blog" data-es="Blog">Blog</a></li>
-          <li><a href="index.html" data-en="Contact" data-es="Contacto">Contact</a></li>
-        </ul>
-      </div>
+    <div class="sf-col">
+      <h4 data-en="Explore" data-es="Explorar">Explore</h4>
+      <ul>
+        <li><a href="../index.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="../work/index.html" data-en="Our Work" data-es="Nuestro Trabajo">Our Work</a></li>
+        <li><a href="../index.html#about" data-en="About Us" data-es="Sobre Nosotros">About Us</a></li>
+        
+        <li><a href="../contact/index.html" data-en="Contact" data-es="Contacto">Contact</a></li>
+      </ul>
+    </div>
 
-      <div class="service-footer-col">
-        <h4 data-en="Services" data-es="Servicios">Services</h4>
-        <ul>
-          <li><a href="../index.html#services" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
-          <li><a href="../index.html#services" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
-          <li><a href="../index.html#services" data-en="Landscape Management" data-es="Manejo de Paisaje">Landscape Management</a></li>
-        </ul>
-      </div>
+    <div class="sf-col">
+      <h4 data-en="Services" data-es="Servicios">Services</h4>
+      <ul>
+          <li><a href="../services/outdoor-living-patios/index.html" data-en="Outdoor Living &amp; Patios" data-es="Vida al Aire Libre y Patios">Outdoor Living &amp; Patios</a></li>
+          <li><a href="../services/landscape-design/index.html" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
+          <li><a href="../services/landscape-construction/index.html" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
+          <li><a href="../services/pavers-retaining-walls/index.html" data-en="Pavers &amp; Retaining Walls" data-es="Adoquines y Muros de Contención">Pavers &amp; Retaining Walls</a></li>
+          <li><a href="../services/planting-irrigation/index.html" data-en="Planting &amp; Irrigation" data-es="Plantación y Riego">Planting &amp; Irrigation</a></li>
+          <li><a href="../services/landscape-maintenance/index.html" data-en="Landscape Maintenance" data-es="Mantenimiento de Paisaje">Landscape Maintenance</a></li>
+      </ul>
+    </div>
 
-      <div class="service-footer-col">
-        <h4 data-en="Contact" data-es="Contacto">Contact</h4>
-        <ul class="service-footer-contact-list">
-          <li><i data-lucide="map-pin" aria-hidden="true"></i><span data-en="Santa Maria, CA" data-es="Santa Maria, CA">Santa Maria, CA</span></li>
-          <li><i data-lucide="phone" aria-hidden="true"></i><a href="tel:+18052682808">(805) 268-2808</a></li>
-          <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:lunaandsonslandscape@gmail.com">lunaandsonslandscape@gmail.com</a></li>
-        </ul>
-      </div>
+    <div class="sf-col">
+      <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+      <ul class="sf-contact">
+        <li><i data-lucide="phone" aria-hidden="true"></i><a href="tel:+18052682808">(805) 268-2808</a></li>
+        <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:lunaandsonslandscape@gmail.com">lunaandsonslandscape@gmail.com</a></li>
+        <li><i data-lucide="map-pin" aria-hidden="true"></i><span>Santa Maria, CA</span></li>
+      </ul>
     </div>
   </div>
 
-  <div class="service-footer-bottom">
-    <div class="container service-footer-bottom-inner">
-      <p>&copy; <span id="year"></span> <span data-en="Luna &amp; Sons Landscaping. All rights reserved." data-es="Luna &amp; Sons Landscaping. Todos los derechos reservados.">Luna &amp; Sons Landscaping. All rights reserved.</span></p>
+  <div class="sf-bottom">
+    <div class="container sf-bottom-inner">
+      <p>&copy; <span id="year"></span> <span data-en="Luna &amp; Sons Landscaping. All rights reserved." data-es="Luna &amp; Sons Landscaping. Todos los derechos reservados.">Luna &amp; Sons Landscaping. All rights reserved.</span> &middot; <span data-en="Licensed &amp; Insured · CA LIC #1160930" data-es="Con Licencia y Seguro · Lic. CA #1160930">Licensed &amp; Insured · CA LIC #1160930</span></p>
       <button class="lang-toggle" type="button" aria-label="Switch language / Cambiar idioma">
         <span class="lang-en-flag" data-active="true">EN</span>/<span class="lang-es-flag">ES</span>
       </button>
     </div>
   </div>
 </footer>
-
 <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="../script.js"></script>
