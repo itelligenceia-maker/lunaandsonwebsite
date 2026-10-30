@@ -85,6 +85,7 @@ def render_blog_index():
 <html lang="en">
 <head>
 {render_head("Blog | Luna &amp; Sons Landscaping", "Landscaping tips, project stories, and seasonal advice from Luna &amp; Sons Landscaping in Santa Maria, CA.", depth="../")}
+<meta name="robots" content="noindex">
 </head>
 <body>
 
@@ -134,7 +135,7 @@ def render_blog_post(post):
     body = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-{render_head(f"{title_en} | Luna &amp; Sons Landscaping Blog", "Placeholder blog post on the Luna &amp; Sons Landscaping site — replace with real content.")}
+{render_head(f"{title_en} | Luna &amp; Sons Landscaping Blog", "Placeholder blog post on the Luna &amp; Sons Landscaping site — replace with real content.", depth="../../")}
 </head>
 <body>
 
