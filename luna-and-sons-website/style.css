@@ -1681,3 +1681,10 @@ img { height: auto; }
   .header-actions { gap: 6px; }
   .lang-toggle { padding-left: 10px; padding-right: 10px; }
 }
+
+
+/* ---------- Process step images: larger rounded frames (the 2D plan must not be cropped) ---------- */
+.process-v2 .process-photo { width: 100%; height: auto; aspect-ratio: 4 / 3; border-radius: 14px; box-shadow: var(--shadow-card); background: var(--color-stone-100); }
+.process-v2 .process-photo img { border-radius: 14px; }
+.process-v2 .process-photo--plan { background: #FAF7F1; }
+.process-v2 .process-photo--plan img { object-fit: contain; }

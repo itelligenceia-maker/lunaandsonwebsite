@@ -139,6 +139,9 @@ function initLangToggle() {
       const value = lang === 'es' ? el.dataset.altEs : el.dataset.altEn;
       if (value !== undefined) el.setAttribute('alt', value);
     });
+    document.querySelectorAll('img[data-src-en]').forEach((el) => {
+      el.setAttribute('src', lang === 'es' ? el.dataset.srcEs : el.dataset.srcEn);
+    });
     document.querySelectorAll('.lang-en-flag').forEach((el) => el.setAttribute('data-active', String(lang === 'en')));
     document.querySelectorAll('.lang-es-flag').forEach((el) => el.setAttribute('data-active', String(lang === 'es')));
     document.querySelectorAll('.form-lang').forEach((el) => { el.value = lang; });

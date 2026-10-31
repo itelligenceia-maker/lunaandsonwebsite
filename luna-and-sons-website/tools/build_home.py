@@ -12,6 +12,37 @@ from work_data import WORK, FEATURED
 
 W = {w[0]: w for w in WORK}
 
+# ----------------------------------------------------------------------------
+# PHOTO ASSIGNMENTS for the three "Our Process" steps.
+# To swap a picture: change "src" (path from the site root) and re-run
+#   python3 tools/build_home.py
+# tools/photo-picker.html shows every photo in the project with its file name.
+# ----------------------------------------------------------------------------
+PROCESS_PHOTOS = [
+    {   # 1 — a real consultation photo
+        "src": "landscape images/IMG_3048.jpeg",
+        "title": ("Consultation", "Consulta"),
+        "body": ("We walk your property with you, talk through your goals, and put together honest recommendations.",
+                 "Recorremos su propiedad con usted, hablamos sobre sus objetivos y preparamos recomendaciones honestas."),
+        "alt": ("On-site consultation with Luna & Sons", "Consulta en el sitio con Luna & Sons"),
+    },
+    {   # 2 — professional 2D landscape plan (drawn by tools/make_plan_svg.py, EN + ES versions)
+        "src": "images/process/plan-en.svg", "src_es": "images/process/plan-es.svg", "plan": True,
+        "title": ("Design & Planning", "Diseño y Planificación"),
+        "body": ("We turn that conversation into a clear plan and quote, so you know exactly what you're getting before work starts.",
+                 "Convertimos esa conversación en un plan y cotización claros, para que sepa exactamente qué recibirá antes de comenzar."),
+        "alt": ("2D landscape plan showing a paver patio, pergola, planting beds, retaining wall and lawn",
+                "Plano de paisaje en 2D con patio de adoquines, pérgola, jardineras, muro de contención y césped"),
+    },
+    {   # 3 — an installation photo
+        "src": "landscape images/IMG_3059.jpeg",
+        "title": ("Build & Transform", "Construcción y Transformación"),
+        "body": ("Our crew executes the plan on schedule, cleans up after itself, and walks you through the finished result.",
+                 "Nuestro equipo ejecuta el plan a tiempo, limpia después de trabajar y le muestra el resultado final."),
+        "alt": ("Luna & Sons crew building and installing a project", "Equipo de Luna & Sons construyendo e instalando un proyecto"),
+    },
+]
+
 
 def img(fn, cls="", sizes="", loading="lazy"):
     f, w, h, _c, aen, aes = W[fn if fn in W else "images/" + fn]
@@ -145,29 +176,17 @@ def work_teaser():
 
 
 def process():
-    # Illustrations from luna photos/ (consulting / design / build and transform).
-    # They are renderings, not project photos, so the alt text says so.
-    steps = [
-        ("luna%20photos/consulting%20.png", ("Consultation", "Consulta"),
-         ("We walk your property with you, talk through your goals, and put together honest recommendations.",
-          "Recorremos su propiedad con usted, hablamos sobre sus objetivos y preparamos recomendaciones honestas."),
-         ("Illustration of a Luna & Sons team member discussing a project with a homeowner on site",
-          "Ilustración de un integrante de Luna & Sons conversando sobre un proyecto con un propietario en el sitio")),
-        ("luna%20photos/design%20.png", ("Design & Planning", "Diseño y Planificación"),
-         ("We turn that conversation into a clear plan and quote, so you know exactly what you're getting before work starts.",
-          "Convertimos esa conversación en un plan y cotización claros, para que sepa exactamente qué recibirá antes de comenzar."),
-         ("Illustration of a landscape plan drawing with a lawn, patio and planting beds",
-          "Ilustración de un plano de paisaje con césped, patio y jardineras")),
-        ("luna%20photos/build%20and%20transform%20.png", ("Build & Transform", "Construcción y Transformación"),
-         ("Our crew executes the plan on schedule, cleans up after itself, and walks you through the finished result.",
-          "Nuestro equipo ejecuta el plan a tiempo, limpia después de trabajar y le muestra el resultado final."),
-         ("Illustration of a landscape plan with material samples on a work table",
-          "Ilustración de un plano de paisaje con muestras de materiales sobre una mesa de trabajo")),
-    ]
+    steps = []
+    for ph in PROCESS_PHOTOS:
+        steps.append(ph)
     cards = []
-    for i, (src, title, body, alt) in enumerate(steps):
+    for i, ph in enumerate(steps):
+        title, body, alt = ph["title"], ph["body"], ph["alt"]
+        src = quote(ph["src"])
+        es_attr = f' data-src-en="{src}" data-src-es="{quote(ph["src_es"])}"' if ph.get("src_es") else ""
+        cls = "process-photo process-photo--plan" if ph.get("plan") else "process-photo"
         cards.append(f"""        <div class="process-step" data-aos="fade-up" data-aos-delay="{i * 100}">
-          <div class="process-photo"><img src="{src}" alt="{attr(alt[0])}" data-alt-en="{attr(alt[0])}" data-alt-es="{attr(alt[1])}" loading="lazy" decoding="async"></div>
+          <div class="{cls}"><img src="{src}"{es_attr} alt="{attr(alt[0])}" data-alt-en="{attr(alt[0])}" data-alt-es="{attr(alt[1])}" loading="lazy" decoding="async"></div>
           <p class="step-num">0{i + 1}</p>
           <h3 {bi(title)}</h3>
           <p {bi(body)}</p>
