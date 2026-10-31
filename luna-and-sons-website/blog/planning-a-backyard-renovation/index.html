@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Planning a Backyard Renovation: Where to Start | Luna &amp; Sons Landscaping Blog</title>
 <meta name="description" content="Placeholder blog post on the Luna &amp; Sons Landscaping site — replace with real content.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Planning a Backyard Renovation: Where to Start | Luna &amp; Sons Landscaping Blog">
-<meta property="og:description" content="Placeholder blog post on the Luna &amp; Sons Landscaping site — replace with real content.">
-<meta property="og:image" content="https://lunaandsonslandscaping.com/images/luna-sons-pergola-01.jpg">
-<meta name="theme-color" content="#4B1D63">
+
+<!-- Fonts: Fraunces (confident serif for headlines) + Inter (clean sans for body/nav) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS (Animate On Scroll) - restrained fade-up reveals only -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
 <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
@@ -24,7 +24,7 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a href="../../index.html" class="logo" aria-label="Luna &amp; Sons Landscaping home">
-      <img class="logo-mark" src="../../images/logo-moon.png" width="54" height="54" alt="Luna &amp; Sons moon logo">
+      <img class="logo-mark" src="../../images/logo-moon.png" alt="Luna &amp; Sons moon logo">
       <span class="logo-text">
         <span class="logo-name">Luna &amp; Sons</span>
         <span class="logo-sub" data-en="Landscaping" data-es="Paisajismo">Landscaping</span>
@@ -42,26 +42,20 @@
             </button>
           </div>
           <ul class="dropdown-menu" id="services-dropdown">
-            <li><a href="../../services/outdoor-living-patios/index.html" data-en="Outdoor Living &amp; Patios" data-es="Vida al Aire Libre y Patios">Outdoor Living &amp; Patios</a></li>
-            <li><a href="../../services/landscape-design/index.html" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
-            <li><a href="../../services/landscape-construction/index.html" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
-            <li><a href="../../services/pavers-retaining-walls/index.html" data-en="Pavers &amp; Retaining Walls" data-es="Adoquines y Muros de Contención">Pavers &amp; Retaining Walls</a></li>
-            <li><a href="../../services/planting-irrigation/index.html" data-en="Planting &amp; Irrigation" data-es="Plantación y Riego">Planting &amp; Irrigation</a></li>
-            <li><a href="../../services/landscape-maintenance/index.html" data-en="Landscape Maintenance" data-es="Mantenimiento de Paisaje">Landscape Maintenance</a></li>
+            <li><a href="../../services/landscape-design/" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
+            <li><a href="../../services/landscape-construction/" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
+            <li><a href="../../services/landscape-management/" data-en="Landscape Management" data-es="Manejo de Paisaje">Landscape Management</a></li>
           </ul>
         </li>
-        <li><a href="../../work/index.html" data-en="Our Work" data-es="Nuestro Trabajo">Our Work</a></li>
-        <li><a href="../../index.html#about" data-en="About" data-es="Nosotros">About</a></li>
-        
+        <li><a href="../../blog/index.html" class="active" aria-current="page" data-en="Blog" data-es="Blog">Blog</a></li>
         <li><a href="../../contact/index.html" data-en="Contact" data-es="Contacto">Contact</a></li>
-        <li class="nav-cta-item"><a class="btn btn-primary nav-cta" href="../../contact/index.html"><span data-en="Schedule a Consultation" data-es="Programar una Consulta">Schedule a Consultation</span></a></li>
       </ul>
     </nav>
 
     <div class="header-actions">
-      <a class="header-phone" href="tel:+18052682808" aria-label="Call (805) 268-2808">
+      <a class="header-phone" href="tel:+18052682808">
         <i data-lucide="phone" aria-hidden="true"></i>
-        <span class="header-phone-number">(805) 268-2808</span>
+        <span>(805) 268-2808</span>
       </a>
       <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch language / Cambiar idioma">
         <span class="lang-en-flag" data-active="true">EN</span>/<span class="lang-es-flag">ES</span>
@@ -101,56 +95,66 @@
 <!-- =========================================================
      FOOTER
 ========================================================= -->
-<footer class="sf">
-  <div class="container sf-grid">
-    <div class="sf-brand">
-      <a href="../../index.html" class="sf-logo" aria-label="Luna &amp; Sons Landscaping home">
-        <img src="../../images/logo-moon.png" width="64" height="64" alt="Luna &amp; Sons moon logo" loading="lazy">
-        <span class="sf-wordmark"><span class="sf-name">Luna &amp; Sons</span><span class="sf-sub" data-en="Landscaping" data-es="Paisajismo">Landscaping</span></span>
+<footer class="service-footer">
+  <div class="container">
+    <div class="service-footer-brand" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+      <img class="service-footer-logo" src="../../images/logo/luna-sons-moon.jpg" width="900" height="900" alt="Luna & Sons Landscaping moon logo" loading="lazy">
+      <div class="service-footer-wordmark">
+        <span class="service-footer-name">Luna &amp; Sons</span>
+        <span class="service-footer-sub"><span class="closing-line"></span><span data-en="Landscaping" data-es="Paisajismo">Landscaping</span><span class="closing-line"></span></span>
+      </div>
+      <p class="service-footer-tagline" data-en="Landscapes built to last." data-es="Paisajes construidos para durar.">Landscapes built to last.</p>
+      <p class="service-footer-contact-line">
+        <a href="tel:+18052682808">(805) 268-2808</a> &middot; License #1160930
+      </p>
+      <a class="btn btn-primary service-footer-review" href="https://search.google.com/local/writereview?placeid=REPLACE_WITH_GOOGLE_PLACE_ID" target="_blank" rel="noopener">
+        <span data-en="Leave a Review" data-es="Dejar una Reseña">Leave a Review</span>
+        <i data-lucide="star" aria-hidden="true"></i>
       </a>
-      <p class="sf-tagline" data-en="Family-owned landscape design and construction serving Santa Maria and California&#x27;s Central Coast." data-es="Diseño y construcción de paisajes de una empresa familiar, al servicio de Santa Maria y la Costa Central de California.">Family-owned landscape design and construction serving Santa Maria and California's Central Coast.</p>
-      <div class="sf-social">
-        <a href="https://www.facebook.com/LunaAndSonsLandscape" target="_blank" rel="noopener" aria-label="Luna &amp; Sons on Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
-        <a href="https://www.instagram.com/lunaandsonslandscaping" target="_blank" rel="noopener" aria-label="Luna &amp; Sons on Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+      <div class="service-footer-social">
+        <a href="#" aria-label="Luna & Sons on Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Luna & Sons on Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Luna & Sons on YouTube"><i data-lucide="youtube" aria-hidden="true"></i></a>
       </div>
     </div>
 
-    <div class="sf-col">
-      <h4 data-en="Explore" data-es="Explorar">Explore</h4>
-      <ul>
-        <li><a href="../../index.html" data-en="Home" data-es="Inicio">Home</a></li>
-        <li><a href="../../work/index.html" data-en="Our Work" data-es="Nuestro Trabajo">Our Work</a></li>
-        <li><a href="../../index.html#about" data-en="About Us" data-es="Sobre Nosotros">About Us</a></li>
-        
-        <li><a href="../../contact/index.html" data-en="Contact" data-es="Contacto">Contact</a></li>
-      </ul>
-    </div>
+    <div class="service-footer-links">
+      <div class="service-footer-col">
+        <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
+        <ul>
+          <li><a href="../../index.html" data-en="Home" data-es="Inicio">Home</a></li>
+          <li><a href="../../index.html#about" data-en="About" data-es="Sobre Nosotros">About</a></li>
+          <li><a href="../../index.html#services" data-en="Services" data-es="Servicios">Services</a></li>
+          <li><a href="../../blog/index.html" data-en="Blog" data-es="Blog">Blog</a></li>
+          <li><a href="../../contact/index.html" data-en="Contact" data-es="Contacto">Contact</a></li>
+        </ul>
+      </div>
 
-    <div class="sf-col">
-      <h4 data-en="Services" data-es="Servicios">Services</h4>
-      <ul>
-          <li><a href="../../services/outdoor-living-patios/index.html" data-en="Outdoor Living &amp; Patios" data-es="Vida al Aire Libre y Patios">Outdoor Living &amp; Patios</a></li>
-          <li><a href="../../services/landscape-design/index.html" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
-          <li><a href="../../services/landscape-construction/index.html" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
-          <li><a href="../../services/pavers-retaining-walls/index.html" data-en="Pavers &amp; Retaining Walls" data-es="Adoquines y Muros de Contención">Pavers &amp; Retaining Walls</a></li>
-          <li><a href="../../services/planting-irrigation/index.html" data-en="Planting &amp; Irrigation" data-es="Plantación y Riego">Planting &amp; Irrigation</a></li>
-          <li><a href="../../services/landscape-maintenance/index.html" data-en="Landscape Maintenance" data-es="Mantenimiento de Paisaje">Landscape Maintenance</a></li>
-      </ul>
-    </div>
+      <div class="service-footer-col">
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
+        <ul>
+          <li><a href="../../index.html#services" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
+          <li><a href="../../index.html#services" data-en="Hardscaping" data-es="Hardscape">Hardscaping</a></li>
+          <li><a href="../../index.html#services" data-en="Irrigation Systems" data-es="Sistemas de Riego">Irrigation Systems</a></li>
+          <li><a href="../../index.html#services" data-en="Planting" data-es="Plantación">Planting</a></li>
+          <li><a href="../../index.html#services" data-en="Sod Installation" data-es="Instalación de Césped">Sod Installation</a></li>
+        </ul>
+      </div>
 
-    <div class="sf-col">
-      <h4 data-en="Contact" data-es="Contacto">Contact</h4>
-      <ul class="sf-contact">
-        <li><i data-lucide="phone" aria-hidden="true"></i><a href="tel:+18052682808">(805) 268-2808</a></li>
-        <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:lunaandsonslandscape@gmail.com">lunaandsonslandscape@gmail.com</a></li>
-        <li><i data-lucide="map-pin" aria-hidden="true"></i><span>Santa Maria, CA</span></li>
-      </ul>
+      <div class="service-footer-col">
+        <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+        <ul class="service-footer-contact-list">
+          <li><i data-lucide="map-pin" aria-hidden="true"></i><span data-en="Santa Maria, CA" data-es="Santa Maria, CA">Santa Maria, CA</span></li>
+          <li><i data-lucide="phone" aria-hidden="true"></i><a href="tel:+18052682808">(805) 268-2808</a></li>
+          <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:lunaandsonslandscape@gmail.com">lunaandsonslandscape@gmail.com</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <div class="sf-bottom">
-    <div class="container sf-bottom-inner">
-      <p>&copy; <span id="year"></span> <span data-en="Luna &amp; Sons Landscaping. All rights reserved." data-es="Luna &amp; Sons Landscaping. Todos los derechos reservados.">Luna &amp; Sons Landscaping. All rights reserved.</span> &middot; <span data-en="Licensed &amp; Insured · CA LIC #1160930" data-es="Con Licencia y Seguro · Lic. CA #1160930">Licensed &amp; Insured · CA LIC #1160930</span></p>
+  <div class="service-footer-bottom">
+    <div class="container service-footer-bottom-inner">
+      <p>&copy; <span id="year"></span> <span data-en="Luna &amp; Sons Landscaping. All rights reserved." data-es="Luna &amp; Sons Landscaping. Todos los derechos reservados.">Luna &amp; Sons Landscaping. All rights reserved.</span></p>
       <button class="lang-toggle" type="button" aria-label="Switch language / Cambiar idioma">
         <span class="lang-en-flag" data-active="true">EN</span>/<span class="lang-es-flag">ES</span>
       </button>

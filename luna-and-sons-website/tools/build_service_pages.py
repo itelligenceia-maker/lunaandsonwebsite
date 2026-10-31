@@ -20,11 +20,100 @@ matching the rest of the site.
 import os
 
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-import sys
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from shell import render_head, render_header, render_footer, render_scripts, SERVICES, write_page  # noqa: E402
+
+NAV_ITEMS = [
+    ("landscape-design", "Landscape Design", "Diseño de Paisaje"),
+    ("landscape-construction", "Landscape Construction", "Construcción de Paisaje"),
+    ("landscape-management", "Landscape Management", "Manejo de Paisaje"),
+]
 
 
+def render_head(title, description, depth="../../"):
+    """depth: relative path prefix back to the site root — see render_header()."""
+    return f"""<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content="{description}">
+
+<!-- Fonts: Fraunces (confident serif for headlines) + Inter (clean sans for body/nav) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- AOS (Animate On Scroll) - restrained fade-up reveals only -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+<link rel="stylesheet" href="{depth}style.css">"""
+
+
+def render_header(active, depth="../../"):
+    """active: 'home' | 'blog' | 'contact' | 'services:<slug>' | None.
+    depth: relative path prefix back to the site root — '../../' for pages one
+    directory deep in a category (services/<slug>/, blog/<slug>/), '../' for
+    pages one level deep overall (contact/, blog/)."""
+    is_service_page = bool(active) and active.startswith("services:")
+    active_service_slug = active.split(":", 1)[1] if is_service_page else None
+
+    def nav_class(key):
+        return ' class="active" aria-current="page"' if active == key else ""
+
+    services_class = ' class="active" aria-current="page"' if is_service_page else ""
+
+    dropdown_items = []
+    for slug, label_en, label_es in NAV_ITEMS:
+        active_attrs = ' class="active" aria-current="page"' if slug == active_service_slug else ""
+        dropdown_items.append(
+            f'            <li><a href="{depth}services/{slug}/"{active_attrs} data-en="{label_en}" data-es="{label_es}">{label_en}</a></li>'
+        )
+    dropdown_html = "\n".join(dropdown_items)
+
+    return f"""<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="{depth}index.html" class="logo" aria-label="Luna &amp; Sons Landscaping home">
+      <img class="logo-mark" src="{depth}images/logo-moon.png" alt="Luna &amp; Sons moon logo">
+      <span class="logo-text">
+        <span class="logo-name">Luna &amp; Sons</span>
+        <span class="logo-sub" data-en="Landscaping" data-es="Paisajismo">Landscaping</span>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="{depth}index.html"{nav_class("home")} data-en="Home" data-es="Inicio">Home</a></li>
+        <li class="has-dropdown">
+          <div class="nav-link-wrap">
+            <a href="{depth}index.html#services"{services_class} data-en="Services" data-es="Servicios">Services</a>
+            <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="services-dropdown" aria-label="Toggle services menu">
+              <i data-lucide="chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+          <ul class="dropdown-menu" id="services-dropdown">
+{dropdown_html}
+          </ul>
+        </li>
+        <li><a href="{depth}blog/index.html"{nav_class("blog")} data-en="Blog" data-es="Blog">Blog</a></li>
+        <li><a href="{depth}contact/index.html"{nav_class("contact")} data-en="Contact" data-es="Contacto">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+18052682808">
+        <i data-lucide="phone" aria-hidden="true"></i>
+        <span>(805) 268-2808</span>
+      </a>
+      <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch language / Cambiar idioma">
+        <span class="lang-en-flag" data-active="true">EN</span>/<span class="lang-es-flag">ES</span>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+  <div class="header-stripe" aria-hidden="true">
+    <span class="header-stripe-half header-stripe-purple"></span>
+    <span class="header-stripe-half header-stripe-black"></span>
+  </div>
+</header>"""
 
 
 def bi(pair):
@@ -147,19 +236,99 @@ def render_cta(heading, button_text):
   </section>"""
 
 
+# Sitewide constants — identical on every service page, so they live here once
+# rather than being repeated (or omitted) in each page's data dict.
+SITE_TAGLINE = "Landscapes built to last."
+SITE_PHONE_DISPLAY = "(805) 268-2808"
+SITE_PHONE_HREF = "tel:+18052682808"
+SITE_LICENSE = "1160930"
+# TODO: swap in the real Google Business review link once available
+SITE_REVIEW_HREF = "https://search.google.com/local/writereview?placeid=REPLACE_WITH_GOOGLE_PLACE_ID"
+
+
+def render_footer(depth="../../"):
+    """The single consolidated footer: brand block (logo, wordmark, tagline,
+    contact, review button, social) + Quick Links / Services / Contact columns
+    + copyright bar. Used unconditionally by every service page via render_page,
+    so it's shared sitewide by construction."""
+    return f"""<footer class="service-footer">
+  <div class="container">
+    <div class="service-footer-brand" data-aos="fade-up" data-aos-duration="550" data-aos-easing="ease-out">
+      <img class="service-footer-logo" src="{depth}images/logo/luna-sons-moon.jpg" width="900" height="900" alt="Luna & Sons Landscaping moon logo" loading="lazy">
+      <div class="service-footer-wordmark">
+        <span class="service-footer-name">Luna &amp; Sons</span>
+        <span class="service-footer-sub"><span class="closing-line"></span><span data-en="Landscaping" data-es="Paisajismo">Landscaping</span><span class="closing-line"></span></span>
+      </div>
+      <p class="service-footer-tagline" data-en="{SITE_TAGLINE}" data-es="Paisajes construidos para durar.">{SITE_TAGLINE}</p>
+      <p class="service-footer-contact-line">
+        <a href="{SITE_PHONE_HREF}">{SITE_PHONE_DISPLAY}</a> &middot; License #{SITE_LICENSE}
+      </p>
+      <a class="btn btn-primary service-footer-review" href="{SITE_REVIEW_HREF}" target="_blank" rel="noopener">
+        <span data-en="Leave a Review" data-es="Dejar una Reseña">Leave a Review</span>
+        <i data-lucide="star" aria-hidden="true"></i>
+      </a>
+      <div class="service-footer-social">
+        <a href="#" aria-label="Luna & Sons on Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Luna & Sons on Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Luna & Sons on YouTube"><i data-lucide="youtube" aria-hidden="true"></i></a>
+      </div>
+    </div>
+
+    <div class="service-footer-links">
+      <div class="service-footer-col">
+        <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
+        <ul>
+          <li><a href="{depth}index.html" data-en="Home" data-es="Inicio">Home</a></li>
+          <li><a href="{depth}index.html#about" data-en="About" data-es="Sobre Nosotros">About</a></li>
+          <li><a href="{depth}index.html#services" data-en="Services" data-es="Servicios">Services</a></li>
+          <li><a href="{depth}blog/index.html" data-en="Blog" data-es="Blog">Blog</a></li>
+          <li><a href="{depth}contact/index.html" data-en="Contact" data-es="Contacto">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="service-footer-col">
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
+        <ul>
+          <li><a href="{depth}index.html#services" data-en="Landscape Design" data-es="Diseño de Paisaje">Landscape Design</a></li>
+          <li><a href="{depth}index.html#services" data-en="Landscape Construction" data-es="Construcción de Paisaje">Landscape Construction</a></li>
+          <li><a href="{depth}index.html#services" data-en="Landscape Management" data-es="Manejo de Paisaje">Landscape Management</a></li>
+        </ul>
+      </div>
+
+      <div class="service-footer-col">
+        <h4 data-en="Contact" data-es="Contacto">Contact</h4>
+        <ul class="service-footer-contact-list">
+          <li><i data-lucide="map-pin" aria-hidden="true"></i><span data-en="Santa Maria, CA" data-es="Santa Maria, CA">Santa Maria, CA</span></li>
+          <li><i data-lucide="phone" aria-hidden="true"></i><a href="{SITE_PHONE_HREF}">{SITE_PHONE_DISPLAY}</a></li>
+          <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:lunaandsonslandscape@gmail.com">lunaandsonslandscape@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-footer-bottom">
+    <div class="container service-footer-bottom-inner">
+      <p>&copy; <span id="year"></span> <span data-en="Luna &amp; Sons Landscaping. All rights reserved." data-es="Luna &amp; Sons Landscaping. Todos los derechos reservados.">Luna &amp; Sons Landscaping. All rights reserved.</span></p>
+      <button class="lang-toggle" type="button" aria-label="Switch language / Cambiar idioma">
+        <span class="lang-en-flag" data-active="true">EN</span>/<span class="lang-es-flag">ES</span>
+      </button>
+    </div>
+  </div>
+</footer>"""
+
 
 def render_page(data):
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
-{render_head(data["meta_title"], data["meta_description"], depth="../../")}
+{render_head(data["meta_title"], data["meta_description"])}
 </head>
 <body>
 
 <!-- =========================================================
      HEADER / NAV
 ========================================================= -->
-{render_header(f'services:{data["slug"]}', depth='../../')}
+{render_header(f'services:{data["slug"]}')}
 
 <main>
 
@@ -176,9 +345,11 @@ def render_page(data):
 <!-- =========================================================
      FOOTER
 ========================================================= -->
-{render_footer(depth="../../")}
+{render_footer()}
 
-{render_scripts("../../")}
+<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="../../script.js"></script>
 </body>
 </html>
 """
@@ -266,7 +437,7 @@ PAGES = [
             },
         ],
         "cta_heading": ("Ready to plan your space?", "¿Listo para planificar su espacio?"),
-        "cta_button_text": ("Schedule a Consultation", "Programar una Consulta"),
+        "cta_button_text": ("Get a Free Estimate", "Obtenga una Cotización Gratis"),
     },
     {
         "slug": "landscape-construction",
@@ -331,7 +502,7 @@ PAGES = [
             },
         ],
         "cta_heading": ("Ready to build?", "¿Listo para construir?"),
-        "cta_button_text": ("Schedule a Consultation", "Programar una Consulta"),
+        "cta_button_text": ("Get a Free Estimate", "Obtenga una Cotización Gratis"),
     },
     {
         "slug": "landscape-management",
@@ -388,22 +559,19 @@ PAGES = [
             },
         ],
         "cta_heading": ("Ready for ongoing care?", "¿Listo para el cuidado continuo?"),
-        "cta_button_text": ("Schedule a Consultation", "Programar una Consulta"),
+        "cta_button_text": ("Get a Free Estimate", "Obtenga una Cotización Gratis"),
     },
 ]
 
 
-from service_extra import EXTRA_PAGES, HERO  # noqa: E402
-PAGES = [p for p in PAGES if p["slug"] != "landscape-management"] + EXTRA_PAGES
-_order = {slug: i for i, (slug, _en, _es) in enumerate(SERVICES)}
-PAGES.sort(key=lambda p: _order[p["slug"]])
-for _p in PAGES:
-    _p.setdefault("hero_image", HERO[_p["slug"]])
-
-
 def main():
     for data in PAGES:
-        write_page(f"services/{data['slug']}/index.html", render_page(data))
+        out_dir = os.path.join(SITE_ROOT, "services", data["slug"])
+        os.makedirs(out_dir, exist_ok=True)
+        out_path = os.path.join(out_dir, "index.html")
+        with open(out_path, "w") as f:
+            f.write(render_page(data))
+        print(f"wrote {os.path.relpath(out_path, SITE_ROOT)}")
 
 
 if __name__ == "__main__":
